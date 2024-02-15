@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <main className="container relative mx-auto scroll-my-12 overflow-auto px-4 py-3 print:p-12 md:px-16 md:py-10">
+    <main className="container relative mx-auto scroll-my-12 overflow-auto px-4 py-3 md:px-16 md:py-10 print:p-12">
       <section className="mx-auto w-full max-w-3xl space-y-8 bg-white print:space-y-6">
         <div className="flex items-center justify-between">
           <div className="flex-1 space-y-1.5">
@@ -164,8 +164,24 @@ export default function Page() {
                       {education.start} - {education.end}
                     </div>
                   </div>
+                  <h4 className="font-mono text-sm leading-none">
+                    {education.degree}
+                  </h4>
                 </CardHeader>
-                <CardContent className="mt-2">{education.degree}</CardContent>
+                <CardContent className="mt-2">
+                  <div className="mt-2 flex flex-col gap-1 text-xs">
+                    {education.grade && (
+                      <span>
+                        Grade: <strong>{education.grade}</strong>
+                      </span>
+                    )}
+                    {education.project && (
+                      <span>
+                        Final Project: <strong>{education.project}</strong>
+                      </span>
+                    )}
+                  </div>
+                </CardContent>
               </Card>
             );
           })}
@@ -181,7 +197,7 @@ export default function Page() {
 
         <Section className="print-force-new-page scroll-mb-16">
           <h2 className="text-xl font-bold">Projects</h2>
-          <div className="-mx-3 grid grid-cols-1 gap-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
+          <div className="-mx-3 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 print:grid-cols-3 print:gap-2">
             {RESUME_DATA.projects.map((project) => {
               return (
                 <ProjectCard
