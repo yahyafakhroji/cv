@@ -51,7 +51,7 @@ export const RESUME_DATA = {
       title: "Consultant Product Developer",
       logo: Equinix,
       start: "2020",
-      end: "Present",
+      end: "2024",
       description:
         "Maintained Staff Portal v2 Angular 9+ and Angular Material. Maintained New Customer portal using NextJs.",
       techStack: [
