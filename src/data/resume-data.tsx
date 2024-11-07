@@ -12,9 +12,9 @@ export const RESUME_DATA = {
   location: "Malang, East Java, Indonesia",
   locationLink: "https://www.google.com/maps/place/Malang",
   about:
-    "Full Stack Web Engineer with focused on building products with web technologies and extra attention to user POV.",
+    "Web Technology Enthusiast | Fast Learner | Advocate for User-Centric Innovation | Ex Equinix, Futr Asia, Packet, Dinkum Interactive.",
   summary:
-    "As a Full Stack Web Engineer, I have successfully taken multiple products from 0 to 1 and almost all of my products are built with web technologies. I lead teams effectively, ensuring an environment where people can do their best work. Currently, I work mostly with TypeScript, React, Vue, Angular, Node.js, and GraphQL. I have more than 8 years of experience in working remotely with companies all around the world.",
+    "I’m passionate about exploring and advancing web technologies that make a meaningful impact. With hands-on experience at leading companies like Equinix, Futr Asia, Packet and Dinkum Interactive, I’ve developed a solid foundation in technology and digital transformation, yet I approach each project as an opportunity to learn, adapt, and refine.",
   avatarUrl: "https://avatars.githubusercontent.com/u/3510868?v=4",
   personalWebsiteUrl: "https://hiyahya.dev",
   contact: {
