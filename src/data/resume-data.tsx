@@ -18,8 +18,8 @@ export const RESUME_DATA = {
   avatarUrl: "https://avatars.githubusercontent.com/u/3510868?v=4",
   personalWebsiteUrl: "https://hiyahya.dev",
   contact: {
-    email: "yahya.fakhroji@gmail.com",
-    tel: "+6285852448921",
+    // email: "yahya.fakhroji@gmail.com",
+    // tel: "+6285852448921",
     social: [
       {
         name: "GitHub",
