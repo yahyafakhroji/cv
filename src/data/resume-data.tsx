@@ -18,7 +18,7 @@ export const RESUME_DATA = {
   avatarUrl: "https://avatars.githubusercontent.com/u/3510868?v=4",
   personalWebsiteUrl: "https://hiyahya.dev",
   contact: {
-    email: "yahya.fakhroji@gmail.com",
+    email: "contact@hiyahya.dev",
     tel: null,
     social: [
       {
@@ -40,7 +40,7 @@ export const RESUME_DATA = {
       start: "2013",
       end: "2018",
       grade: "3.63",
-      project: "Android Based Field Surveys with Geolocation"
+      project: "Android Based Field Surveys with Geolocation",
     },
   ],
   work: [
@@ -101,7 +101,16 @@ export const RESUME_DATA = {
       end: "2020",
       description:
         "Maintained Staff Portal using AngularJS and Laravel. Maintained Customer portal using React. Built New Staff Portal using Angular 2+ and Angular Material",
-      techStack: ["AngularJS","Laravel","React","Angular","Angular Material","Bootstrap","Jira (Project Management)","Slack"],
+      techStack: [
+        "AngularJS",
+        "Laravel",
+        "React",
+        "Angular",
+        "Angular Material",
+        "Bootstrap",
+        "Jira (Project Management)",
+        "Slack",
+      ],
     },
     {
       company: "Dinkum Interactive",
@@ -113,7 +122,19 @@ export const RESUME_DATA = {
       end: "2018",
       description:
         "Built Custom Wordpress Plugins. Built Custom Woocommerce Plugins. Worked on Project using Phalcon Framework and MithrilJS. Worked as Front end Developer on Project using AngularJS and Material UI",
-      techStack: ["Wordpress","PHP","CSS","JQuery","AngularJs","Phalcon Framework (PHP)","Mithril JS","Material UI","Bootstrap","Trello (Task Management)","Slack"],
+      techStack: [
+        "Wordpress",
+        "PHP",
+        "CSS",
+        "JQuery",
+        "AngularJs",
+        "Phalcon Framework (PHP)",
+        "Mithril JS",
+        "Material UI",
+        "Bootstrap",
+        "Trello (Task Management)",
+        "Slack",
+      ],
     },
     {
       company: "Montazze Studio",
@@ -125,7 +146,16 @@ export const RESUME_DATA = {
       end: "2016",
       description:
         "Collaborated with design teams to implement the desing to Wordpress Theme. Built Custom Wordpress Plugins. Built Custom Woocommerce Plugins",
-      techStack: ["Wordpress","PHP","CSS","JQuery","Bootstrap","Trello (Task Management)","Slack","Skype"],
+      techStack: [
+        "Wordpress",
+        "PHP",
+        "CSS",
+        "JQuery",
+        "Bootstrap",
+        "Trello (Task Management)",
+        "Slack",
+        "Skype",
+      ],
     },
   ],
   skills: [
@@ -137,7 +167,7 @@ export const RESUME_DATA = {
     "Node.js/Adonis/Nest",
     "Ant Design/Chakra UI/Bootstrap/Angular Material",
     "PHP/Wordpress",
-    "GraphQL",  
+    "GraphQL",
     "Git/Docker/Jira",
     "MySQL/PostgreSQL",
   ],
@@ -154,7 +184,8 @@ export const RESUME_DATA = {
         "Chakra UI",
         "Capacitor by Ionic",
       ],
-      description: "The Driver/Courier App for focuses on efficient shipment management.",
+      description:
+        "The Driver/Courier App for focuses on efficient shipment management.",
       logo: ConsultlyLogo,
       timeline: "Sep 2022 - Jan 2024",
       link: {
@@ -174,7 +205,8 @@ export const RESUME_DATA = {
         "Chakra UI",
         "Capacitor by Ionic",
       ],
-      description: "Freelance Canvasser App is a versatile tool designed to streamline the canvassing process for freelance workers.",
+      description:
+        "Freelance Canvasser App is a versatile tool designed to streamline the canvassing process for freelance workers.",
       logo: ConsultlyLogo,
       timeline: "Sep 2022 - Jan 2024",
       link: {
@@ -193,7 +225,8 @@ export const RESUME_DATA = {
         "Ant Design",
         "PWA",
       ],
-      description: "Seller Center for UMKM/SME to manage their product and order.",
+      description:
+        "Seller Center for UMKM/SME to manage their product and order.",
       logo: ConsultlyLogo,
       timeline: "Sep 2022 - Jan 2024",
       link: {
@@ -243,11 +276,7 @@ export const RESUME_DATA = {
     },
     {
       title: "Keeppack Customer & Staff App",
-      techStack: [
-        "Side Project",
-        "Nuxt.Js",
-        "Ant Design",
-      ],
+      techStack: ["Side Project", "Nuxt.Js", "Ant Design"],
       description: "Cowarehousing and eCommerce Fulfillment System",
       logo: ConsultlyLogo,
       timeline: "Jul 2019 - Apr 2022",
@@ -265,7 +294,8 @@ export const RESUME_DATA = {
         "Angular Material",
         "Tailwind CSS",
       ],
-      description: "Automation in Workforce Management. Managing your workforce made simpler through our end to end automation",
+      description:
+        "Automation in Workforce Management. Managing your workforce made simpler through our end to end automation",
       logo: ConsultlyLogo,
       timeline: "Apr 2021 - Feb 2022",
     },
@@ -278,7 +308,8 @@ export const RESUME_DATA = {
         "Angular Material",
         "Tailwind CSS",
       ],
-      description: "Application that provides order fulfillment and product management services and is integrated with marketplaces.",
+      description:
+        "Application that provides order fulfillment and product management services and is integrated with marketplaces.",
       logo: ConsultlyLogo,
       timeline: "Aug 2021 - Jan 2022",
       link: {
@@ -288,27 +319,17 @@ export const RESUME_DATA = {
     },
     {
       title: "Bonbon Merchant App",
-      techStack: [
-        "Side Project",
-        "Typescript",
-        "Angular",
-        "Bootstrap",
-        "PWA",
-      ],
-      description: "Bonbon POS is the most advanced, feature-rich POS system on the market.",
+      techStack: ["Side Project", "Typescript", "Angular", "Bootstrap", "PWA"],
+      description:
+        "Bonbon POS is the most advanced, feature-rich POS system on the market.",
       logo: ConsultlyLogo,
       timeline: "Aug 2020 - Dec 2021",
     },
     {
       title: "Moinves APP & API",
-      techStack: [
-        "Side Project",
-        "PHP",
-        "Prestashop",
-        "Bootstrap",
-        "JQuery",
-      ],
-      description: "Mutual Funds Investment App - by PT Mandiri Manajemen Investasi",
+      techStack: ["Side Project", "PHP", "Prestashop", "Bootstrap", "JQuery"],
+      description:
+        "Mutual Funds Investment App - by PT Mandiri Manajemen Investasi",
       logo: ConsultlyLogo,
       timeline: "Jan 2018 - Apr 2020",
       link: {
@@ -318,13 +339,9 @@ export const RESUME_DATA = {
     },
     {
       title: "Bonbon Customer App",
-      techStack: [
-        "Side Project",
-        "Nuxt.Js",
-        "Framework7",
-        "PWA",
-      ],
-      description: "The restaurant app improves dining with digital features like table booking, food ordering, split bills, and easy payments.",
+      techStack: ["Side Project", "Nuxt.Js", "Framework7", "PWA"],
+      description:
+        "The restaurant app improves dining with digital features like table booking, food ordering, split bills, and easy payments.",
       logo: ConsultlyLogo,
       timeline: "Sep 2019 - Feb 2020",
       link: {
@@ -334,25 +351,17 @@ export const RESUME_DATA = {
     },
     {
       title: "Copilot",
-      techStack: [
-        "Full Stack Dev",
-        "PHP",
-        "Phalcon Framework",
-        "Mithril JS",
-      ],
-      description: "Copilot, our streamlined in-house system, integrates diverse data for quick decision-making in managing multiple clients and varied data sets.",
+      techStack: ["Full Stack Dev", "PHP", "Phalcon Framework", "Mithril JS"],
+      description:
+        "Copilot, our streamlined in-house system, integrates diverse data for quick decision-making in managing multiple clients and varied data sets.",
       logo: ConsultlyLogo,
       timeline: "Jul 2016 - Mar 2018",
     },
     {
       title: "MuseCRM",
-      techStack: [
-        "Frontend Dev",
-        "Javascript",
-        "Angular JS",
-        "Bootstrap",
-      ],
-      description: "SaaS solution, revamps online ticketing and customer management with modern, user-friendly features.",
+      techStack: ["Frontend Dev", "Javascript", "Angular JS", "Bootstrap"],
+      description:
+        "SaaS solution, revamps online ticketing and customer management with modern, user-friendly features.",
       logo: ConsultlyLogo,
       timeline: "Jul 2016 - Mar 2018",
       link: {
@@ -369,7 +378,8 @@ export const RESUME_DATA = {
         "Ionic Framework",
         "Wordpress",
       ],
-      description: "Geolocation-based site survey app that empowers cloud project management apps",
+      description:
+        "Geolocation-based site survey app that empowers cloud project management apps",
       logo: ConsultlyLogo,
       timeline: "Apr 2017 - Aug 2017",
       link: {
