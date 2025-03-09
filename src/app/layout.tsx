@@ -23,6 +23,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.className}>
+      <meta
+        http-equiv="Content-Security-Policy"
+        content="upgrade-insecure-requests"
+      ></meta>
       <body>{children}</body>
       <GoogleAnalytics gaId="G-KTXCV72QXG" />
     </html>
