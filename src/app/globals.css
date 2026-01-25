@@ -4,65 +4,68 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 224 71.4% 4.1%;
+    /* ========================================
+       RETRO 80s SYNTHWAVE THEME
+       ======================================== */
 
-    --card: 0 0% 100%;
-    --card-foreground: 224 71.4% 4.1%;
+    /* Base Colors - Deep Purple/Black Background */
+    --background: 270 50% 4%;
+    --foreground: 300 20% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 224 71.4% 4.1%;
+    /* Card Colors */
+    --card: 270 40% 8%;
+    --card-foreground: 300 20% 95%;
 
-    --primary: 220.9 39.3% 11%;
-    --primary-foreground: 210 20% 98%;
+    /* Popover */
+    --popover: 270 45% 6%;
+    --popover-foreground: 300 20% 95%;
 
-    --secondary: 220 14.3% 95.9%;
-    --secondary-foreground: 220.9 39.3% 11%;
+    /* Primary - Neon Pink */
+    --primary: 330 100% 60%;
+    --primary-foreground: 270 50% 4%;
 
-    --muted: 220 14.3% 95.9%;
-    --muted-foreground: 220 8.9% 46.1%;
+    /* Secondary - Deep Purple */
+    --secondary: 280 40% 15%;
+    --secondary-foreground: 300 20% 95%;
 
-    --accent: 220 14.3% 95.9%;
-    --accent-foreground: 220.9 39.3% 11%;
+    /* Muted */
+    --muted: 270 30% 15%;
+    --muted-foreground: 270 15% 55%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 20% 98%;
+    /* Accent - Neon Cyan */
+    --accent: 180 100% 50%;
+    --accent-foreground: 270 50% 4%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 224 71.4% 4.1%;
+    /* Destructive */
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 300 20% 95%;
 
-    --radius: 0.5rem;
-  }
+    /* Borders & Inputs */
+    --border: 280 40% 20%;
+    --input: 280 40% 15%;
+    --ring: 330 100% 60%;
 
-  .dark {
-    --background: 224 71.4% 4.1%;
-    --foreground: 210 20% 98%;
+    /* Radius */
+    --radius: 0.75rem;
 
-    --card: 224 71.4% 4.1%;
-    --card-foreground: 210 20% 98%;
+    /* ========================================
+       NEON ACCENT COLORS
+       ======================================== */
+    --neon-pink: 330 100% 60%;
+    --neon-cyan: 180 100% 50%;
+    --neon-purple: 280 100% 65%;
+    --neon-blue: 220 100% 60%;
+    --neon-orange: 25 100% 55%;
+    --neon-yellow: 50 100% 50%;
 
-    --popover: 224 71.4% 4.1%;
-    --popover-foreground: 210 20% 98%;
-
-    --primary: 210 20% 98%;
-    --primary-foreground: 220.9 39.3% 11%;
-
-    --secondary: 215 27.9% 16.9%;
-    --secondary-foreground: 210 20% 98%;
-
-    --muted: 215 27.9% 16.9%;
-    --muted-foreground: 217.9 10.6% 64.9%;
-
-    --accent: 215 27.9% 16.9%;
-    --accent-foreground: 210 20% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 20% 98%;
-
-    --border: 215 27.9% 16.9%;
-    --input: 215 27.9% 16.9%;
-    --ring: 216 12.2% 83.9%;
+    /* ========================================
+       SUNSET GRADIENT COLORS
+       ======================================== */
+    --sunset-1: 50 100% 50%;
+    --sunset-2: 30 100% 56%;
+    --sunset-3: 330 100% 56%;
+    --sunset-4: 300 100% 56%;
+    --sunset-5: 270 100% 56%;
   }
 }
 
@@ -70,11 +73,364 @@
   * {
     @apply border-border;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+
+  /* Selection styling */
+  ::selection {
+    @apply bg-neon-pink/30 text-foreground;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-neon-purple/50;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-neon-purple/70;
   }
 }
 
-.print-force-new-page {
-  page-break-before: always;
+@layer components {
+  /* ========================================
+     RETRO GRID BACKGROUND
+     ======================================== */
+  .retro-grid {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(
+        hsl(var(--neon-purple) / 0.15) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, hsl(var(--neon-purple) / 0.15) 1px, transparent 1px);
+    background-size: 50px 50px;
+    mask-image: linear-gradient(
+      to bottom,
+      transparent,
+      black 20%,
+      black 80%,
+      transparent
+    );
+    perspective: 500px;
+    transform-style: preserve-3d;
+  }
+
+  .retro-grid::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    background-size: inherit;
+    transform: rotateX(60deg) translateY(-50%);
+    transform-origin: center top;
+  }
+
+  /* ========================================
+     NEON TEXT EFFECTS
+     ======================================== */
+  .text-glow-pink {
+    text-shadow:
+      0 0 10px hsl(var(--neon-pink) / 0.8),
+      0 0 20px hsl(var(--neon-pink) / 0.6),
+      0 0 40px hsl(var(--neon-pink) / 0.4),
+      0 0 80px hsl(var(--neon-pink) / 0.2);
+  }
+
+  .text-glow-cyan {
+    text-shadow:
+      0 0 10px hsl(var(--neon-cyan) / 0.8),
+      0 0 20px hsl(var(--neon-cyan) / 0.6),
+      0 0 40px hsl(var(--neon-cyan) / 0.4),
+      0 0 80px hsl(var(--neon-cyan) / 0.2);
+  }
+
+  .text-glow-purple {
+    text-shadow:
+      0 0 10px hsl(var(--neon-purple) / 0.8),
+      0 0 20px hsl(var(--neon-purple) / 0.6),
+      0 0 40px hsl(var(--neon-purple) / 0.4),
+      0 0 80px hsl(var(--neon-purple) / 0.2);
+  }
+
+  /* ========================================
+     GRADIENT TEXT
+     ======================================== */
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      135deg,
+      hsl(var(--neon-pink)),
+      hsl(var(--neon-purple)),
+      hsl(var(--neon-cyan))
+    );
+  }
+
+  .gradient-text-sunset {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      135deg,
+      hsl(var(--sunset-1)),
+      hsl(var(--sunset-2)),
+      hsl(var(--sunset-3)),
+      hsl(var(--sunset-4)),
+      hsl(var(--sunset-5))
+    );
+  }
+
+  /* ========================================
+     GLOW BORDERS
+     ======================================== */
+  .glow-border {
+    position: relative;
+  }
+
+  .glow-border::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--neon-pink)),
+      hsl(var(--neon-purple)),
+      hsl(var(--neon-cyan)),
+      hsl(var(--neon-pink))
+    );
+    background-size: 300% 300%;
+    animation: gradient-shift 4s ease infinite;
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    opacity: 0.8;
+  }
+
+  .glow-border:hover::before {
+    opacity: 1;
+  }
+
+  /* ========================================
+     SCANLINES OVERLAY
+     ======================================== */
+  .scanlines {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scanlines::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      hsl(0 0% 0% / 0.03) 2px,
+      hsl(0 0% 0% / 0.03) 4px
+    );
+    pointer-events: none;
+  }
+
+  /* ========================================
+     NOISE TEXTURE OVERLAY
+     ======================================== */
+  .noise-overlay {
+    position: relative;
+  }
+
+  .noise-overlay::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+
+  /* ========================================
+     SUN/SUNSET CIRCLE
+     ======================================== */
+  .sunset-sun {
+    background: linear-gradient(
+      180deg,
+      hsl(var(--sunset-1)) 0%,
+      hsl(var(--sunset-2)) 25%,
+      hsl(var(--sunset-3)) 50%,
+      hsl(var(--sunset-4)) 75%,
+      hsl(var(--sunset-5)) 100%
+    );
+    border-radius: 50%;
+    box-shadow:
+      0 0 60px hsl(var(--sunset-3) / 0.5),
+      0 0 120px hsl(var(--sunset-4) / 0.3);
+  }
+
+  /* Horizontal lines through the sun (classic 80s effect) */
+  .sunset-sun-lines {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sunset-sun-lines::after {
+    content: "";
+    position: absolute;
+    inset: 50% 0 0 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 8px,
+      hsl(var(--background)) 8px,
+      hsl(var(--background)) 12px
+    );
+  }
+
+  /* ========================================
+     CARD STYLES
+     ======================================== */
+  .card-glow {
+    @apply relative overflow-hidden rounded-lg bg-card p-6;
+    transition: all 0.3s ease;
+  }
+
+  .card-glow::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--neon-purple) / 0.5),
+      hsl(var(--neon-pink) / 0.2),
+      hsl(var(--neon-cyan) / 0.5)
+    );
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+  }
+
+  .card-glow:hover::before {
+    opacity: 1;
+  }
+
+  .card-glow:hover {
+    box-shadow:
+      0 0 20px hsl(var(--neon-purple) / 0.2),
+      0 0 40px hsl(var(--neon-pink) / 0.1);
+  }
+
+  /* ========================================
+     BUTTON STYLES
+     ======================================== */
+  .btn-neon {
+    @apply relative px-6 py-3 font-semibold transition-all duration-300;
+    background: transparent;
+    border: 2px solid hsl(var(--neon-pink));
+    color: hsl(var(--neon-pink));
+    text-shadow: 0 0 10px hsl(var(--neon-pink) / 0.5);
+    box-shadow:
+      0 0 10px hsl(var(--neon-pink) / 0.3),
+      inset 0 0 10px hsl(var(--neon-pink) / 0.1);
+  }
+
+  .btn-neon:hover {
+    background: hsl(var(--neon-pink) / 0.1);
+    box-shadow:
+      0 0 20px hsl(var(--neon-pink) / 0.5),
+      0 0 40px hsl(var(--neon-pink) / 0.3),
+      inset 0 0 20px hsl(var(--neon-pink) / 0.2);
+  }
+
+  .btn-neon-cyan {
+    border-color: hsl(var(--neon-cyan));
+    color: hsl(var(--neon-cyan));
+    text-shadow: 0 0 10px hsl(var(--neon-cyan) / 0.5);
+    box-shadow:
+      0 0 10px hsl(var(--neon-cyan) / 0.3),
+      inset 0 0 10px hsl(var(--neon-cyan) / 0.1);
+  }
+
+  .btn-neon-cyan:hover {
+    background: hsl(var(--neon-cyan) / 0.1);
+    box-shadow:
+      0 0 20px hsl(var(--neon-cyan) / 0.5),
+      0 0 40px hsl(var(--neon-cyan) / 0.3),
+      inset 0 0 20px hsl(var(--neon-cyan) / 0.2);
+  }
+
+  /* ========================================
+     SECTION STYLES
+     ======================================== */
+  .section {
+    @apply relative py-20 md:py-32;
+  }
+
+  .section-heading {
+    @apply mb-12 text-center text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl;
+  }
+}
+
+@layer utilities {
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Print styles */
+  .print-force-new-page {
+    page-break-before: always;
+  }
+
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
