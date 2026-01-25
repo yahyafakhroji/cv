@@ -7,9 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "cf:build": "npx @opennextjs/cloudflare build",
-    "cf:dev": "npm run cf:build && wrangler dev",
-    "cf:deploy": "npm run cf:build && wrangler deploy"
+    "cf:build": "node node_modules/@opennextjs/cloudflare/dist/cli/index.js build",
+    "cf:dev": "bun run cf:build && wrangler dev",
+    "cf:deploy": "bun run cf:build && wrangler deploy"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
