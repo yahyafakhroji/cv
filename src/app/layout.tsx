@@ -54,6 +54,15 @@ export default function RootLayout({
           httpEquiv="Content-Security-Policy"
           content="upgrade-insecure-requests"
         />
+        <meta name="apple-mobile-web-app-title" content="Hi Yahya's CV" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="apple-mobile-web-app-title" content="Hi Yahya's CV" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="apple-mobile-web-app-title" content="Hi Yahya's CV" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         {/* Google Fonts loaded via CDN for reliability */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

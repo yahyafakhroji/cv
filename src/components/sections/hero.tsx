@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { ChevronDown } from "lucide-react";
 import { GridBackground } from "@/components/ui/grid-background";
 import { SunsetSun } from "@/components/ui/sunset-sun";
@@ -9,19 +9,33 @@ import { TextReveal, TypewriterText } from "@/components/animations/text-reveal"
 import { RESUME_DATA } from "@/data/resume-data";
 
 export function Hero() {
+  // Parallax scroll effect for the sunset sun - grows bigger as you scroll
+  const { scrollY } = useScroll();
+  const sunY = useTransform(scrollY, [0, 500], [0, 100]);
+  const sunOpacity = useTransform(scrollY, [0, 400], [0.3, 0]);
+  const sunScale = useTransform(scrollY, [0, 500], [1, 1.5]); // Grows 50% bigger
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background elements */}
       <GridBackground />
       <FloatingShapes />
 
-      {/* Sunset sun */}
-      {/* <div className="absolute bottom-[15%] left-1/2 -translate-x-1/2 z-0">
-        <SunsetSun size={280} />
-      </div> */}
+      {/* Sunset sun - positioned behind content with parallax scroll effect */}
+      <motion.div 
+        className="absolute bottom-0 left-1/2 z-0"
+        style={{ 
+          x: "-50%", // Centers horizontally
+          y: sunY,
+          opacity: sunOpacity,
+          scale: sunScale,
+        }}
+      >
+        <SunsetSun size={400} />
+      </motion.div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto text-shadow-lg">
         {/* Greeting */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -37,7 +51,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6"
+          className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 drop-shadow-[0_0_25px_rgba(0,0,0,0.8)]"
         >
           <span className="gradient-text">{RESUME_DATA.name}</span>
         </motion.h1>
@@ -59,7 +73,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.6 }}
-          className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-12"
+          className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-12 drop-shadow-[0_0_15px_rgba(0,0,0,0.9)]"
         >
           Crafting digital experiences with modern web technologies.
           <br />

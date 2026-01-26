@@ -1,0 +1,17 @@
+#:schema node_modules/@opennextjs/cloudflare/wrangler-schema.json
+name = "cv-app"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+main = ".open-next/worker.js"
+
+[assets]
+directory = ".open-next/assets"
+
+# Custom Domain Configuration
+# Uncomment and update with your domain
+# [[routes]]
+# pattern = "yourdomain.com"
+# custom_domain = true
+
+# For development/testing, you can use the default workers.dev subdomain
+# No routes configuration needed

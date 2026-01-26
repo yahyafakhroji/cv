@@ -27,7 +27,9 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
+.env
 .env*.local
+.env.production
 
 # vercel
 .vercel
@@ -35,6 +37,15 @@ yarn-error.log*
 # cloudflare workers
 .open-next
 .wrangler
+wrangler.toml.local
+
+# secrets and sensitive files
+*.key
+*.pem
+*.p12
+*.pfx
+secrets.json
+config.local.*
 
 # typescript
 *.tsbuildinfo
