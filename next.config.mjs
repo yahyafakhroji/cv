@@ -9,8 +9,6 @@ const nextConfig = {
       },
     ],
   },
-  // Exclude @vercel/og from bundle (not used, saves ~2.2MB)
-  serverExternalPackages: ['@vercel/og'],
   // Optimize bundle size for Cloudflare Workers
   experimental: {
     optimizePackageImports: [
@@ -21,7 +19,6 @@ const nextConfig = {
       '@radix-ui/react-slot',
     ],
   },
-  // Reduce bundle size
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },

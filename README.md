@@ -25,7 +25,6 @@ A modern, high-performance CV/Portfolio website with a retro 80s synthwave aesth
 ### Performance
 
 - **Edge Deployment** - Cloudflare Workers with global CDN
-- **Optimized Bundle** - ~140KB smaller, fits in 3MB free tier limit
 - **Static Generation** - Pre-rendered pages for instant loads
 - **Image Optimization** - Next.js Image component with Cloudflare Images support
 - **Lightweight** - Minimal dependencies, maximum performance
