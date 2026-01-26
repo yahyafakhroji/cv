@@ -45,7 +45,7 @@ export function GlowCard({ children, className, glowColor = 'purple' }: GlowCard
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
       className={cn(
-        'group relative overflow-hidden rounded-xl border border-border bg-card p-6 transition-colors hover:border-neon-purple/50',
+        'card-shadow-depth group relative overflow-hidden rounded-xl border border-border bg-card p-6 transition-colors hover:border-neon-purple/50',
         className
       )}
     >

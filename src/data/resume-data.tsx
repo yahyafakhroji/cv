@@ -7,9 +7,9 @@ export const RESUME_DATA = {
   location: 'Malang, East Java, Indonesia',
   locationLink: 'https://www.google.com/maps/place/Malang',
   about:
-    'Web Technology Enthusiast | Fast Learner | Advocate for User-Centric Innovation | Ex Equinix, Futr Asia, Packet, Dinkum Interactive.',
+    'Web Technologies Engineer | Exploring modern web frameworks & tools | 10+ years building scalable applications | Ex Equinix, Futr Asia, Packet',
   summary:
-    'I’m passionate about exploring and advancing web technologies that make a meaningful impact. With hands-on experience at leading companies like Equinix, Futr Asia, Packet and Dinkum Interactive, I’ve developed a solid foundation in technology and digital transformation, yet I approach each project as an opportunity to learn, adapt, and refine.',
+    "I'm a Web Technologies Engineer passionate about crafting robust, user-friendly applications. Over 10+ years, I've contributed to high-impact projects at companies like Equinix and Futr Asia, working across the full web stack—from Angular and React frontends to Node.js and PHP backends. I thrive on learning new technologies and delivering solutions that balance innovation with reliability.",
   avatarUrl: 'https://avatars.githubusercontent.com/u/3510868?v=4',
   personalWebsiteUrl: 'https://hiyahya.dev',
   contact: {
@@ -48,7 +48,7 @@ export const RESUME_DATA = {
       start: '2020',
       end: '2024',
       description:
-        'Maintained Staff Portal v2 Angular 9+ and Angular Material. Maintained New Customer portal using NextJs.',
+        'Developed and maintained two key portals serving thousands of users: the Staff Portal (Angular 9+ with Angular Material) and Customer Portal (Next.js with Tailwind CSS). Collaborated with cross-functional teams to deliver feature enhancements and resolve critical issues, ensuring high availability and user satisfaction.',
       techStack: [
         'TypeScript',
         'Angular',
@@ -69,7 +69,7 @@ export const RESUME_DATA = {
       start: '2022',
       end: '2024',
       description:
-        'I Joined Futr Asia as Full Stack Web Developer. But I also became the project leader for one of the projects there.',
+        'Led the Lini ecosystem project as Full Stack Developer and Project Leader, architecting a suite of interconnected applications (Courier, Seller, Store, Mitra) using React, Angular, and GraphQL. Coordinated development workflows, mentored team members, and delivered production-ready PWAs with offline capabilities.',
       techStack: [
         'Angular',
         'React v18',
@@ -95,7 +95,7 @@ export const RESUME_DATA = {
       start: '2018',
       end: '2020',
       description:
-        'Maintained Staff Portal using AngularJS and Laravel. Maintained Customer portal using React. Built New Staff Portal using Angular 2+ and Angular Material',
+        'Modernized legacy portals by migrating from AngularJS to Angular 2+, improving performance and maintainability. Contributed to both Staff and Customer portals, working with React, Angular, and Laravel to deliver seamless user experiences for bare-metal cloud infrastructure customers.',
       techStack: [
         'AngularJS',
         'Laravel',
@@ -116,7 +116,7 @@ export const RESUME_DATA = {
       start: '2016',
       end: '2018',
       description:
-        'Built Custom Wordpress Plugins. Built Custom Woocommerce Plugins. Worked on Project using Phalcon Framework and MithrilJS. Worked as Front end Developer on Project using AngularJS and Material UI',
+        'Developed custom WordPress and WooCommerce plugins for client projects, extending e-commerce functionality and integrating third-party APIs. Contributed to full-stack applications using Phalcon (PHP) and MithrilJS, and built responsive frontends with AngularJS and Material UI.',
       techStack: [
         'Wordpress',
         'PHP',
@@ -140,7 +140,7 @@ export const RESUME_DATA = {
       start: '2015',
       end: '2016',
       description:
-        'Collaborated with design teams to implement the desing to Wordpress Theme. Built Custom Wordpress Plugins. Built Custom Woocommerce Plugins',
+        'Collaborated with designers to translate mockups into pixel-perfect WordPress themes. Built custom plugins and WooCommerce extensions to meet client requirements, focusing on performance and user experience.',
       techStack: [
         'Wordpress',
         'PHP',
@@ -179,7 +179,8 @@ export const RESUME_DATA = {
         'Chakra UI',
         'Capacitor by Ionic',
       ],
-      description: 'The Driver/Courier App for focuses on efficient shipment management.',
+      description:
+        'Mobile-first courier application built with React and Capacitor, enabling drivers to manage shipments efficiently with real-time tracking, offline support, and optimized routing. Part of the Lini ecosystem serving UMKM/SME businesses across Indonesia.',
       logo: ConsultlyLogo,
       timeline: 'Sep 2022 - Jan 2024',
       link: {

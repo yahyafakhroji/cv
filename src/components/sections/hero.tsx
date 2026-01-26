@@ -64,7 +64,7 @@ export function Hero() {
           className="mb-8 text-2xl font-light md:text-3xl lg:text-4xl"
         >
           <span className="text-foreground/80">
-            <TypewriterText text="Full-Stack Developer" delay={1.2} speed={0.08} />
+            <TypewriterText text="Web Technologies Engineer" delay={1.2} speed={0.08} />
           </span>
         </motion.div>
 
@@ -75,7 +75,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 1.6 }}
           className="mx-auto mb-12 max-w-2xl text-lg text-muted-foreground drop-shadow-[0_0_15px_rgba(0,0,0,0.9)] md:text-xl"
         >
-          Crafting digital experiences with modern web technologies.
+          Engineering modern web experiences with cutting-edge technologies.
           <br />
           <span className="text-neon-pink">10+ years</span> of turning ideas into reality.
         </motion.p>

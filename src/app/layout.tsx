@@ -6,10 +6,10 @@ import { SmoothScrollProvider } from '@/components/providers/smooth-scroll-provi
 import { RESUME_DATA } from '@/data/resume-data';
 
 export const metadata: Metadata = {
-  title: `${RESUME_DATA.name} | Full-Stack Developer`,
+  title: `${RESUME_DATA.name} | Web Technologies Engineer`,
   description: RESUME_DATA.summary,
   keywords: [
-    'Full-Stack Developer',
+    'Web Technologies Engineer',
     'Web Developer',
     'React',
     'Next.js',
@@ -21,13 +21,13 @@ export const metadata: Metadata = {
   authors: [{ name: RESUME_DATA.name }],
   openGraph: {
     type: 'website',
-    title: `${RESUME_DATA.name} | Full-Stack Developer`,
+    title: `${RESUME_DATA.name} | Web Technologies Engineer`,
     description: RESUME_DATA.summary,
     siteName: RESUME_DATA.name,
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${RESUME_DATA.name} | Full-Stack Developer`,
+    title: `${RESUME_DATA.name} | Web Technologies Engineer`,
     description: RESUME_DATA.summary,
   },
   robots: {

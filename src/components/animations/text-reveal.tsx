@@ -61,28 +61,49 @@ interface TypewriterTextProps {
 }
 
 export function TypewriterText({ text, className, delay = 0, speed = 0.05 }: TypewriterTextProps) {
+  const chars = text.split('');
+  const totalDuration = delay + chars.length * speed;
+
   return (
     <motion.span className={className}>
-      {text.split('').map((char, index) => (
-        <motion.span
-          key={index}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{
-            delay: delay + index * speed,
-            duration: 0.1,
-          }}
-        >
-          {char}
-        </motion.span>
-      ))}
+      {chars.map((char, index) => {
+        const charDelay = delay + index * speed;
+        return (
+          <motion.span key={index} className="relative inline-block">
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                delay: charDelay,
+                duration: 0.1,
+              }}
+            >
+              {char}
+            </motion.span>
+            {/* Cursor that appears at each character position during typing */}
+            <motion.span
+              className="absolute -right-[2px] top-1/2 inline-block h-[1em] w-[2px] -translate-y-1/2 bg-neon-pink"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0, 1, 1, 0] }}
+              transition={{
+                delay: charDelay,
+                duration: speed,
+                times: [0, 0.1, 0.9, 1],
+              }}
+            />
+          </motion.span>
+        );
+      })}
+      {/* Final blinking cursor after typing is complete */}
       <motion.span
-        className="ml-1 inline-block h-[1em] w-[2px] bg-neon-pink"
-        animate={{ opacity: [1, 1, 0, 0] }}
+        className="ml-[2px] inline-block h-[1em] w-[2px] bg-neon-pink align-middle"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: [0, 0, 1, 1, 0, 0] }}
         transition={{
+          delay: totalDuration,
           duration: 1,
           repeat: Infinity,
-          times: [0, 0.5, 0.5, 1],
+          times: [0, 0.3, 0.3, 0.7, 0.7, 1],
         }}
       />
     </motion.span>

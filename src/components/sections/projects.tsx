@@ -79,7 +79,7 @@ export function Projects() {
 
                   {/* Tech stack */}
                   <div className="flex flex-wrap gap-1.5">
-                    {project.techStack.slice(0, 4).map((tech) => (
+                    {project.techStack.map((tech) => (
                       <span
                         key={tech}
                         className="rounded border border-border bg-background/50 px-2 py-0.5 text-xs text-muted-foreground"
@@ -87,11 +87,6 @@ export function Projects() {
                         {tech}
                       </span>
                     ))}
-                    {project.techStack.length > 4 && (
-                      <span className="rounded border border-border bg-background/50 px-2 py-0.5 text-xs text-muted-foreground">
-                        +{project.techStack.length - 4}
-                      </span>
-                    )}
                   </div>
                 </div>
 

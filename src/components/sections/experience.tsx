@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { Briefcase, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import { FadeIn } from '@/components/animations/fade-in';
 import { GlowCard } from '@/components/ui/glow-card';
 import { RESUME_DATA } from '@/data/resume-data';
@@ -88,7 +88,6 @@ export function Experience() {
                         <ExternalLink className="h-3 w-3" />
                       </a>
                     </div>
-                    <Briefcase className="h-5 w-5 flex-shrink-0 text-muted-foreground" />
                   </div>
 
                   {/* Badges */}
@@ -110,7 +109,7 @@ export function Experience() {
 
                   {/* Tech stack */}
                   <div className="flex flex-wrap gap-2">
-                    {job.techStack.slice(0, 6).map((tech) => (
+                    {job.techStack.map((tech) => (
                       <span
                         key={tech}
                         className="rounded border border-border bg-card px-2 py-1 text-xs text-muted-foreground"
@@ -118,11 +117,6 @@ export function Experience() {
                         {tech}
                       </span>
                     ))}
-                    {job.techStack.length > 6 && (
-                      <span className="rounded border border-border bg-card px-2 py-1 text-xs text-muted-foreground">
-                        +{job.techStack.length - 6} more
-                      </span>
-                    )}
                   </div>
                 </GlowCard>
               </div>
