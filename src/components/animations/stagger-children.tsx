@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { motion } from "motion/react";
-import { ReactNode } from "react";
-import { staggerContainer, fadeInUp, defaultTransition } from "@/lib/animations";
+import { motion } from 'motion/react';
+import { ReactNode } from 'react';
+import { fadeInUp, defaultTransition } from '@/lib/animations';
 
 interface StaggerChildrenProps {
   children: ReactNode;
@@ -23,7 +23,7 @@ export function StaggerChildren({
     <motion.div
       initial="initial"
       whileInView="animate"
-      viewport={{ once, margin: "-50px" }}
+      viewport={{ once, margin: '-50px' }}
       variants={{
         initial: {},
         animate: {

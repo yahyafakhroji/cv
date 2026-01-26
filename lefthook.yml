@@ -1,0 +1,66 @@
+# Lefthook Configuration for Next.js CV Project
+# https://lefthook.dev/
+
+# Pre-commit hook - runs before git commit
+pre-commit:
+  parallel: true
+  commands:
+    # Format code with Prettier
+    format:
+      glob: '*.{js,jsx,ts,tsx,json,css,md}'
+      run: bun x prettier --write {staged_files}
+      stage_fixed: true
+
+    # Lint TypeScript/JavaScript files with auto-fix
+    lint:
+      glob: '*.{js,jsx,ts,tsx}'
+      run: bun run lint:fix {staged_files}
+      stage_fixed: true
+
+    # Type check staged TypeScript files
+    typecheck:
+      glob: '*.{ts,tsx}'
+      run: bun x tsc --noEmit
+
+# Pre-push hook - runs before git push
+pre-push:
+  commands:
+    # Full project type check
+    typecheck:
+      run: bun run typecheck
+
+    # Full project lint (no auto-fix to catch all issues)
+    lint:
+      run: bun run lint
+
+    # Run full build to ensure it compiles
+    # build:
+    #   run: bun run build
+
+    # Run tests (if you add them)
+    # test:
+    #   run: bun test
+
+# Commit-msg hook - validates commit message format
+commit-msg:
+  commands:
+    # Validate conventional commits format
+    message-check:
+      run: |
+        commit_msg=$(cat {1})
+        pattern="^(feat|fix|docs|style|refactor|perf|test|chore|ci|build|revert)(\(.+\))?: .{1,}"
+
+        if ! echo "$commit_msg" | grep -qE "$pattern"; then
+          echo "❌ Invalid commit message format!"
+          echo ""
+          echo "Expected format: <type>(<scope>): <description>"
+          echo ""
+          echo "Types: feat, fix, docs, style, refactor, perf, test, chore, ci, build, revert"
+          echo ""
+          echo "Examples:"
+          echo "  feat: add new sunset animation"
+          echo "  fix(hero): resolve sunset positioning"
+          echo "  docs: update README with new features"
+          echo ""
+          exit 1
+        fi

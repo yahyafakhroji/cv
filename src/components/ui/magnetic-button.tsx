@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
-import { ReactNode, useRef } from "react";
+import { motion, useMotionValue, useSpring } from 'motion/react';
+import { ReactNode, useRef } from 'react';
 
 interface MagneticButtonProps {
   children: ReactNode;
@@ -9,11 +9,7 @@ interface MagneticButtonProps {
   strength?: number;
 }
 
-export function MagneticButton({
-  children,
-  className,
-  strength = 0.3,
-}: MagneticButtonProps) {
+export function MagneticButton({ children, className, strength = 0.3 }: MagneticButtonProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   const x = useMotionValue(0);

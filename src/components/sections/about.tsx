@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { motion } from "motion/react";
-import Image from "next/image";
-import { MapPin, Mail } from "lucide-react";
-import { FadeIn } from "@/components/animations/fade-in";
-import { StaggerChildren, StaggerItem } from "@/components/animations/stagger-children";
-import { GlowCard } from "@/components/ui/glow-card";
-import { RESUME_DATA } from "@/data/resume-data";
-import { GitHubIcon, LinkedInIcon } from "@/components/icons";
+import { motion } from 'motion/react';
+import Image from 'next/image';
+import { MapPin, Mail } from 'lucide-react';
+import { FadeIn } from '@/components/animations/fade-in';
+import { StaggerChildren, StaggerItem } from '@/components/animations/stagger-children';
+import { GlowCard } from '@/components/ui/glow-card';
+import { RESUME_DATA } from '@/data/resume-data';
+import { GitHubIcon, LinkedInIcon } from '@/components/icons';
 
 export function About() {
   const socialIcons: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -24,7 +24,7 @@ export function About() {
           </h2>
         </FadeIn>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+        <div className="mx-auto grid max-w-5xl items-center gap-12 md:grid-cols-2">
           {/* Avatar and social links */}
           <FadeIn direction="left" delay={0.2}>
             <div className="flex flex-col items-center">
@@ -34,26 +34,26 @@ export function About() {
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-neon-pink via-neon-purple to-neon-cyan blur-md opacity-75" />
+                <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-neon-pink via-neon-purple to-neon-cyan opacity-75 blur-md" />
                 <Image
                   src={RESUME_DATA.avatarUrl}
                   alt={RESUME_DATA.name}
                   width={224}
                   height={224}
-                  className="relative w-48 h-48 md:w-56 md:h-56 rounded-full object-cover border-2 border-background"
+                  className="relative h-48 w-48 rounded-full border-2 border-background object-cover md:h-56 md:w-56"
                   priority
                 />
               </motion.div>
 
               {/* Info badges */}
-              <div className="flex flex-wrap justify-center gap-3 mb-6">
+              <div className="mb-6 flex flex-wrap justify-center gap-3">
                 <a
                   href={RESUME_DATA.locationLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border hover:border-neon-purple/50 transition-colors"
+                  className="flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 transition-colors hover:border-neon-purple/50"
                 >
-                  <MapPin className="w-4 h-4 text-neon-pink" />
+                  <MapPin className="h-4 w-4 text-neon-pink" />
                   <span className="text-sm">{RESUME_DATA.location}</span>
                 </a>
               </div>
@@ -68,22 +68,22 @@ export function About() {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 rounded-lg bg-card border border-border hover:border-neon-cyan/50 transition-all hover:shadow-neon-cyan"
+                      className="rounded-lg border border-border bg-card p-3 transition-all hover:border-neon-cyan/50 hover:shadow-neon-cyan"
                       whileHover={{ scale: 1.1, y: -2 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      {Icon && <Icon className="w-5 h-5" />}
+                      {Icon && <Icon className="h-5 w-5" />}
                     </motion.a>
                   );
                 })}
                 {RESUME_DATA.contact.email && (
                   <motion.a
                     href={`mailto:${RESUME_DATA.contact.email}`}
-                    className="p-3 rounded-lg bg-card border border-border hover:border-neon-pink/50 transition-all hover:shadow-neon-pink"
+                    className="rounded-lg border border-border bg-card p-3 transition-all hover:border-neon-pink/50 hover:shadow-neon-pink"
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <Mail className="w-5 h-5" />
+                    <Mail className="h-5 w-5" />
                   </motion.a>
                 )}
               </div>
@@ -94,32 +94,30 @@ export function About() {
           <FadeIn direction="right" delay={0.4}>
             <div className="space-y-6">
               <div>
-                <h3 className="text-2xl font-semibold mb-4 gradient-text">
+                <h3 className="gradient-text mb-4 text-2xl font-semibold">
                   {RESUME_DATA.initials} - Web Technology Enthusiast
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {RESUME_DATA.summary}
-                </p>
+                <p className="leading-relaxed text-muted-foreground">{RESUME_DATA.summary}</p>
               </div>
 
               {/* Quick stats */}
               <StaggerChildren className="grid grid-cols-3 gap-4" staggerDelay={0.1}>
                 <StaggerItem>
-                  <GlowCard className="text-center p-4" glowColor="pink">
+                  <GlowCard className="p-4 text-center" glowColor="pink">
                     <div className="text-3xl font-bold text-neon-pink">10+</div>
-                    <div className="text-xs text-muted-foreground mt-1">Years Exp</div>
+                    <div className="mt-1 text-xs text-muted-foreground">Years Exp</div>
                   </GlowCard>
                 </StaggerItem>
                 <StaggerItem>
-                  <GlowCard className="text-center p-4" glowColor="cyan">
+                  <GlowCard className="p-4 text-center" glowColor="cyan">
                     <div className="text-3xl font-bold text-neon-cyan">13+</div>
-                    <div className="text-xs text-muted-foreground mt-1">Projects</div>
+                    <div className="mt-1 text-xs text-muted-foreground">Projects</div>
                   </GlowCard>
                 </StaggerItem>
                 <StaggerItem>
-                  <GlowCard className="text-center p-4" glowColor="purple">
+                  <GlowCard className="p-4 text-center" glowColor="purple">
                     <div className="text-3xl font-bold text-neon-purple">5</div>
-                    <div className="text-xs text-muted-foreground mt-1">Companies</div>
+                    <div className="mt-1 text-xs text-muted-foreground">Companies</div>
                   </GlowCard>
                 </StaggerItem>
               </StaggerChildren>
@@ -127,7 +125,7 @@ export function About() {
               {/* Education */}
               {RESUME_DATA.education.length > 0 && (
                 <GlowCard glowColor="purple">
-                  <h4 className="text-lg font-semibold mb-2 text-neon-purple">Education</h4>
+                  <h4 className="mb-2 text-lg font-semibold text-neon-purple">Education</h4>
                   {RESUME_DATA.education.map((edu) => (
                     <div key={edu.school}>
                       <p className="font-medium">{edu.school}</p>

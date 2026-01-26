@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { motion } from "motion/react";
+import { motion } from 'motion/react';
 
 interface SunsetSunProps {
   size?: number;
@@ -13,7 +13,7 @@ export function SunsetSun({ size = 300, className }: SunsetSunProps) {
       initial={{ opacity: 0, scale: 0.8, y: 50 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-      className={`relative ${className || ""}`}
+      className={`relative ${className || ''}`}
       style={{ width: size, height: size }}
     >
       {/* Main sun gradient */}
@@ -37,9 +37,9 @@ export function SunsetSun({ size = 300, className }: SunsetSunProps) {
 
       {/* Horizontal lines (classic 80s effect) */}
       <div
-        className="absolute inset-0 rounded-full overflow-hidden"
+        className="absolute inset-0 overflow-hidden rounded-full"
         style={{
-          clipPath: "inset(50% 0 0 0)",
+          clipPath: 'inset(50% 0 0 0)',
         }}
       >
         {[...Array(8)].map((_, i) => (
@@ -63,7 +63,7 @@ export function SunsetSun({ size = 300, className }: SunsetSunProps) {
         transition={{
           duration: 3,
           repeat: Infinity,
-          ease: "easeInOut",
+          ease: 'easeInOut',
         }}
         style={{
           background: `radial-gradient(circle at 50% 30%, hsl(var(--sunset-1) / 0.3), transparent 60%)`,

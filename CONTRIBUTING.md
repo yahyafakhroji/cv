@@ -7,6 +7,7 @@ First off, thank you for considering contributing to this project! 🎉
 ### Reporting Bugs
 
 If you find a bug, please create an issue with:
+
 - Clear description of the bug
 - Steps to reproduce
 - Expected vs actual behavior
@@ -16,6 +17,7 @@ If you find a bug, please create an issue with:
 ### Suggesting Enhancements
 
 Enhancement suggestions are welcome! Please:
+
 - Check existing issues first
 - Clearly describe the enhancement
 - Explain why it would be useful
@@ -72,7 +74,7 @@ bun run pages:dev
 - **TypeScript**: Use strict typing, avoid `any`
 - **React**: Functional components with hooks
 - **Formatting**: Prettier is configured, run `bun run format` (if added)
-- **Naming**: 
+- **Naming**:
   - Components: PascalCase
   - Files: kebab-case
   - Variables: camelCase
@@ -94,6 +96,7 @@ src/
 ## Commit Message Format
 
 Use conventional commits:
+
 - `feat:` - New feature
 - `fix:` - Bug fix
 - `docs:` - Documentation changes
@@ -110,12 +113,14 @@ Example: `feat: add parallax scroll effect to hero section`
 Looking for ways to contribute? Here are some ideas:
 
 ### 🎨 Design
+
 - New color themes
 - Animation improvements
 - Mobile responsiveness tweaks
 - Accessibility enhancements
 
 ### 🚀 Features
+
 - Blog integration
 - CMS support (Contentful, Sanity, etc.)
 - Multi-language support
@@ -123,17 +128,20 @@ Looking for ways to contribute? Here are some ideas:
 - Project filtering/search
 
 ### 📝 Documentation
+
 - Tutorial videos
 - Setup guides for different platforms
 - Troubleshooting guides
 - Translation of docs
 
 ### 🐛 Bug Fixes
+
 - Browser compatibility issues
 - Performance optimizations
 - Build improvements
 
 ### 🧪 Testing
+
 - Unit tests
 - E2E tests
 - Visual regression tests
@@ -155,6 +163,7 @@ Looking for ways to contribute? Here are some ideas:
 ## Questions?
 
 Feel free to:
+
 - Open an issue for discussion
 - Reach out via [LinkedIn](https://www.linkedin.com/in/yahya-fakhroji/)
 - Check existing issues and discussions

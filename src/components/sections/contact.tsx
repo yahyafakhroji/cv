@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { motion } from "motion/react";
-import { Mail, MapPin, Send } from "lucide-react";
-import { FadeIn } from "@/components/animations/fade-in";
-import { MagneticButton } from "@/components/ui/magnetic-button";
-import { RESUME_DATA } from "@/data/resume-data";
-import { GitHubIcon, LinkedInIcon } from "@/components/icons";
+import { motion } from 'motion/react';
+import { Mail, MapPin, Send } from 'lucide-react';
+import { FadeIn } from '@/components/animations/fade-in';
+import { MagneticButton } from '@/components/ui/magnetic-button';
+import { RESUME_DATA } from '@/data/resume-data';
+import { GitHubIcon, LinkedInIcon } from '@/components/icons';
 
 export function Contact() {
   const socialIcons: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -23,17 +23,17 @@ export function Contact() {
         }}
       />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container relative z-10 mx-auto px-4">
         <FadeIn>
           <h2 className="section-heading">
             Let&apos;s <span className="text-glow-pink">Connect</span>
           </h2>
         </FadeIn>
 
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="mx-auto max-w-3xl text-center">
           {/* Main CTA text */}
           <FadeIn delay={0.2}>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8">
+            <p className="mb-8 text-xl text-muted-foreground md:text-2xl">
               Have a project in mind or want to collaborate?
               <br />
               <span className="text-foreground">I&apos;d love to hear from you.</span>
@@ -42,23 +42,23 @@ export function Contact() {
 
           {/* Email CTA */}
           <FadeIn delay={0.4}>
-            <MagneticButton className="inline-block mb-12">
+            <MagneticButton className="mb-12 inline-block">
               <motion.a
                 href={`mailto:${RESUME_DATA.contact.email}`}
-                className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-xl overflow-hidden"
+                className="group relative inline-flex items-center gap-3 overflow-hidden rounded-xl px-8 py-4"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
                 {/* Animated gradient border */}
-                <div className="absolute inset-0 rounded-xl glow-border" />
+                <div className="glow-border absolute inset-0 rounded-xl" />
 
                 {/* Background */}
                 <div className="absolute inset-[2px] rounded-xl bg-card" />
 
                 {/* Content */}
                 <div className="relative flex items-center gap-3">
-                  <Mail className="w-5 h-5 text-neon-pink" />
-                  <span className="text-lg font-medium gradient-text">
+                  <Mail className="h-5 w-5 text-neon-pink" />
+                  <span className="gradient-text text-lg font-medium">
                     {RESUME_DATA.contact.email}
                   </span>
                   <motion.div
@@ -66,7 +66,7 @@ export function Contact() {
                     animate={{ x: [0, 5, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
                   >
-                    <Send className="w-5 h-5" />
+                    <Send className="h-5 w-5" />
                   </motion.div>
                 </div>
               </motion.a>
@@ -75,7 +75,7 @@ export function Contact() {
 
           {/* Social links */}
           <FadeIn delay={0.6}>
-            <div className="flex justify-center gap-6 mb-12">
+            <div className="mb-12 flex justify-center gap-6">
               {RESUME_DATA.contact.social.map((social) => {
                 const Icon = socialIcons[social.name];
                 return (
@@ -84,12 +84,14 @@ export function Contact() {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex items-center gap-2 px-5 py-3 rounded-lg bg-card border border-border hover:border-neon-purple/50 transition-all"
+                      className="group flex items-center gap-2 rounded-lg border border-border bg-card px-5 py-3 transition-all hover:border-neon-purple/50"
                       whileHover={{ y: -3 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      {Icon && <Icon className="w-5 h-5 group-hover:text-neon-purple transition-colors" />}
-                      <span className="text-sm group-hover:text-neon-purple transition-colors">
+                      {Icon && (
+                        <Icon className="h-5 w-5 transition-colors group-hover:text-neon-purple" />
+                      )}
+                      <span className="text-sm transition-colors group-hover:text-neon-purple">
                         {social.name}
                       </span>
                     </motion.a>
@@ -105,9 +107,9 @@ export function Contact() {
               href={RESUME_DATA.locationLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+              className="inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
             >
-              <MapPin className="w-4 h-4 text-neon-cyan" />
+              <MapPin className="h-4 w-4 text-neon-cyan" />
               <span>{RESUME_DATA.location}</span>
             </a>
           </FadeIn>

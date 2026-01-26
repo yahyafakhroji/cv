@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 export function useMediaQuery(query: string): boolean {
   const [matches, setMatches] = useState(false);
@@ -13,8 +13,8 @@ export function useMediaQuery(query: string): boolean {
       setMatches(event.matches);
     };
 
-    mediaQuery.addEventListener("change", handler);
-    return () => mediaQuery.removeEventListener("change", handler);
+    mediaQuery.addEventListener('change', handler);
+    return () => mediaQuery.removeEventListener('change', handler);
   }, [query]);
 
   return matches;
@@ -22,17 +22,17 @@ export function useMediaQuery(query: string): boolean {
 
 // Preset hooks for common breakpoints
 export function useIsMobile() {
-  return useMediaQuery("(max-width: 767px)");
+  return useMediaQuery('(max-width: 767px)');
 }
 
 export function useIsTablet() {
-  return useMediaQuery("(min-width: 768px) and (max-width: 1023px)");
+  return useMediaQuery('(min-width: 768px) and (max-width: 1023px)');
 }
 
 export function useIsDesktop() {
-  return useMediaQuery("(min-width: 1024px)");
+  return useMediaQuery('(min-width: 1024px)');
 }
 
 export function usePrefersReducedMotion() {
-  return useMediaQuery("(prefers-reduced-motion: reduce)");
+  return useMediaQuery('(prefers-reduced-motion: reduce)');
 }

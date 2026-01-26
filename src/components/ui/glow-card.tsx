@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import { motion, useMotionTemplate, useMotionValue } from "motion/react";
-import { ReactNode, useRef } from "react";
-import { cn } from "@/lib/utils";
+import { motion, useMotionTemplate, useMotionValue } from 'motion/react';
+import { ReactNode, useRef } from 'react';
+import { cn } from '@/lib/utils';
 
 interface GlowCardProps {
   children: ReactNode;
   className?: string;
-  glowColor?: "pink" | "cyan" | "purple";
+  glowColor?: 'pink' | 'cyan' | 'purple';
 }
 
-export function GlowCard({ children, className, glowColor = "purple" }: GlowCardProps) {
+export function GlowCard({ children, className, glowColor = 'purple' }: GlowCardProps) {
   const ref = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -23,9 +23,9 @@ export function GlowCard({ children, className, glowColor = "purple" }: GlowCard
   };
 
   const colorMap = {
-    pink: "var(--neon-pink)",
-    cyan: "var(--neon-cyan)",
-    purple: "var(--neon-purple)",
+    pink: 'var(--neon-pink)',
+    cyan: 'var(--neon-cyan)',
+    purple: 'var(--neon-purple)',
   };
 
   const background = useMotionTemplate`
@@ -45,7 +45,7 @@ export function GlowCard({ children, className, glowColor = "purple" }: GlowCard
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
       className={cn(
-        "group relative overflow-hidden rounded-xl border border-border bg-card p-6 transition-colors hover:border-neon-purple/50",
+        'group relative overflow-hidden rounded-xl border border-border bg-card p-6 transition-colors hover:border-neon-purple/50',
         className
       )}
     >

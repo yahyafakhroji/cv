@@ -1,18 +1,10 @@
-import {
-  Hero,
-  About,
-  Experience,
-  Projects,
-  Skills,
-  Contact,
-  Footer,
-} from "@/components/sections";
+import { Hero, About, Experience, Projects, Skills, Contact, Footer } from '@/components/sections';
 
 export default function Home() {
   return (
     <main className="relative min-h-screen">
       {/* Noise overlay for the whole page */}
-      <div className="fixed inset-0 pointer-events-none z-50 noise-overlay opacity-50" />
+      <div className="noise-overlay pointer-events-none fixed inset-0 z-50 opacity-50" />
 
       {/* Sections */}
       <Hero />

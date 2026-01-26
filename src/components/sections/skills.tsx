@@ -1,28 +1,28 @@
-"use client";
+'use client';
 
-import { motion } from "motion/react";
-import { FadeIn } from "@/components/animations/fade-in";
-import { StaggerChildren, StaggerItem } from "@/components/animations/stagger-children";
-import { RESUME_DATA } from "@/data/resume-data";
+import { motion } from 'motion/react';
+import { FadeIn } from '@/components/animations/fade-in';
+import { StaggerChildren, StaggerItem } from '@/components/animations/stagger-children';
+import { RESUME_DATA } from '@/data/resume-data';
 
 // Map skills to categories
 const skillCategories = {
   Frontend: [
-    "JavaScript",
-    "TypeScript",
-    "Angular/AngularJS",
-    "React/Next.js",
-    "Vue/Nuxt",
-    "Ant Design/Chakra UI/Bootstrap/Angular Material",
+    'JavaScript',
+    'TypeScript',
+    'Angular/AngularJS',
+    'React/Next.js',
+    'Vue/Nuxt',
+    'Ant Design/Chakra UI/Bootstrap/Angular Material',
   ],
-  Backend: ["Node.js/Adonis/Nest", "PHP/Wordpress", "GraphQL"],
-  Tools: ["Git/Docker/Jira", "MySQL/PostgreSQL"],
+  Backend: ['Node.js/Adonis/Nest', 'PHP/Wordpress', 'GraphQL'],
+  Tools: ['Git/Docker/Jira', 'MySQL/PostgreSQL'],
 };
 
 const glowColors = {
-  Frontend: "pink",
-  Backend: "cyan",
-  Tools: "purple",
+  Frontend: 'pink',
+  Backend: 'cyan',
+  Tools: 'purple',
 } as const;
 
 export function Skills() {
@@ -37,7 +37,7 @@ export function Skills() {
         }}
       />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container relative z-10 mx-auto px-4">
         <FadeIn>
           <h2 className="section-heading">
             <span className="text-glow-cyan">Technical</span> Skills
@@ -45,7 +45,7 @@ export function Skills() {
         </FadeIn>
 
         {/* Skills grid by category */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-3">
           {Object.entries(skillCategories).map(([category, skills], categoryIndex) => {
             const color = glowColors[category as keyof typeof glowColors];
             const colorVar = `var(--neon-${color})`;
@@ -60,18 +60,15 @@ export function Skills() {
                 className="relative"
               >
                 {/* Category header */}
-                <div className="flex items-center gap-3 mb-6">
+                <div className="mb-6 flex items-center gap-3">
                   <div
-                    className="w-3 h-3 rounded-full"
+                    className="h-3 w-3 rounded-full"
                     style={{
                       backgroundColor: `hsl(${colorVar})`,
                       boxShadow: `0 0 10px hsl(${colorVar} / 0.5)`,
                     }}
                   />
-                  <h3
-                    className="text-xl font-semibold"
-                    style={{ color: `hsl(${colorVar})` }}
-                  >
+                  <h3 className="text-xl font-semibold" style={{ color: `hsl(${colorVar})` }}>
                     {category}
                   </h3>
                 </div>
@@ -86,7 +83,7 @@ export function Skills() {
                         transition={{ duration: 0.2 }}
                       >
                         {/* Skill bar background */}
-                        <div className="relative overflow-hidden rounded-lg bg-card border border-border p-3 transition-colors group-hover:border-border/80">
+                        <div className="relative overflow-hidden rounded-lg border border-border bg-card p-3 transition-colors group-hover:border-border/80">
                           {/* Animated fill */}
                           <motion.div
                             className="absolute inset-0 rounded-lg"
@@ -100,18 +97,16 @@ export function Skills() {
                             }}
                             style={{
                               background: `linear-gradient(90deg, hsl(${colorVar} / 0.1), hsl(${colorVar} / 0.05))`,
-                              transformOrigin: "left",
+                              transformOrigin: 'left',
                             }}
                           />
 
                           {/* Skill text */}
-                          <span className="relative z-10 text-sm text-foreground/90">
-                            {skill}
-                          </span>
+                          <span className="relative z-10 text-sm text-foreground/90">{skill}</span>
 
                           {/* Hover glow line */}
                           <motion.div
-                            className="absolute left-0 top-0 bottom-0 w-1 rounded-l-lg opacity-0 group-hover:opacity-100 transition-opacity"
+                            className="absolute bottom-0 left-0 top-0 w-1 rounded-l-lg opacity-0 transition-opacity group-hover:opacity-100"
                             style={{ backgroundColor: `hsl(${colorVar})` }}
                           />
                         </div>
@@ -130,12 +125,12 @@ export function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 max-w-4xl mx-auto"
+          className="mx-auto mt-16 max-w-4xl"
         >
-          <h4 className="text-center text-muted-foreground mb-6">All Technologies</h4>
+          <h4 className="mb-6 text-center text-muted-foreground">All Technologies</h4>
           <div className="flex flex-wrap justify-center gap-3">
             {RESUME_DATA.skills.map((skill, index) => {
-              const colors = ["pink", "cyan", "purple"] as const;
+              const colors = ['pink', 'cyan', 'purple'] as const;
               const color = colors[index % 3];
               return (
                 <motion.span
@@ -148,9 +143,7 @@ export function Skills() {
                     scale: 1.1,
                     boxShadow: `0 0 20px hsl(var(--neon-${color}) / 0.4)`,
                   }}
-                  className={`px-4 py-2 rounded-full text-sm border transition-all cursor-default
-                    border-neon-${color}/30 text-neon-${color} bg-neon-${color}/5
-                    hover:border-neon-${color}/60 hover:bg-neon-${color}/10`}
+                  className={`cursor-default rounded-full border px-4 py-2 text-sm transition-all border-neon-${color}/30 text-neon-${color} bg-neon-${color}/5 hover:border-neon-${color}/60 hover:bg-neon-${color}/10`}
                 >
                   {skill}
                 </motion.span>

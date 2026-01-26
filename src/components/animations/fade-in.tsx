@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { motion, type Variants } from "motion/react";
-import { ReactNode } from "react";
-import { fadeInUp, fadeInLeft, fadeInRight, fadeInDown, defaultTransition } from "@/lib/animations";
+import { motion, type Variants } from 'motion/react';
+import { ReactNode } from 'react';
+import { fadeInUp, fadeInLeft, fadeInRight, fadeInDown, defaultTransition } from '@/lib/animations';
 
-type Direction = "up" | "down" | "left" | "right";
+type Direction = 'up' | 'down' | 'left' | 'right';
 
 interface FadeInProps {
   children: ReactNode;
@@ -24,7 +24,7 @@ const variants: Record<Direction, Variants> = {
 
 export function FadeIn({
   children,
-  direction = "up",
+  direction = 'up',
   delay = 0,
   duration = 0.6,
   className,
@@ -34,7 +34,7 @@ export function FadeIn({
     <motion.div
       initial="initial"
       whileInView="animate"
-      viewport={{ once, margin: "-50px" }}
+      viewport={{ once, margin: '-50px' }}
       variants={variants[direction]}
       transition={{ ...defaultTransition, delay, duration }}
       className={className}

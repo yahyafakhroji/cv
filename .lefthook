@@ -1,0 +1,14 @@
+# Lefthook local configuration
+# This file is ignored by git and can be used for local overrides
+# https://lefthook.dev/
+
+# Example: Skip specific hooks locally
+# skip_output:
+#   - meta
+#   - success
+
+# Example: Override commands
+# pre-commit:
+#   commands:
+#     lint:
+#       skip: true

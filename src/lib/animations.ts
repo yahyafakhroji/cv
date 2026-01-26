@@ -1,11 +1,11 @@
-import type { Transition, Variants } from "motion/react";
+import type { Transition, Variants } from 'motion/react';
 
 // Easing curves
 export const easings = {
   easeOutExpo: [0.16, 1, 0.3, 1] as const,
   easeOutQuart: [0.25, 1, 0.5, 1] as const,
   easeInOutQuart: [0.76, 0, 0.24, 1] as const,
-  spring: { type: "spring", stiffness: 300, damping: 30 } as const,
+  spring: { type: 'spring', stiffness: 300, damping: 30 } as const,
 };
 
 // Default transition
@@ -119,27 +119,27 @@ export const textRevealChar: Variants = {
 
 // Slide animations
 export const slideInFromBottom: Variants = {
-  initial: { y: "100%" },
+  initial: { y: '100%' },
   animate: { y: 0 },
-  exit: { y: "100%" },
+  exit: { y: '100%' },
 };
 
 export const slideInFromTop: Variants = {
-  initial: { y: "-100%" },
+  initial: { y: '-100%' },
   animate: { y: 0 },
-  exit: { y: "-100%" },
+  exit: { y: '-100%' },
 };
 
 export const slideInFromLeft: Variants = {
-  initial: { x: "-100%" },
+  initial: { x: '-100%' },
   animate: { x: 0 },
-  exit: { x: "-100%" },
+  exit: { x: '-100%' },
 };
 
 export const slideInFromRight: Variants = {
-  initial: { x: "100%" },
+  initial: { x: '100%' },
   animate: { x: 0 },
-  exit: { x: "100%" },
+  exit: { x: '100%' },
 };
 
 // Float animation for decorative elements
@@ -150,7 +150,7 @@ export const floatAnimation: Variants = {
     transition: {
       duration: 4,
       repeat: Infinity,
-      ease: "easeInOut",
+      ease: 'easeInOut',
     },
   },
 };
@@ -163,7 +163,7 @@ export const glowPulse: Variants = {
     transition: {
       duration: 2,
       repeat: Infinity,
-      ease: "easeInOut",
+      ease: 'easeInOut',
     },
   },
 };
@@ -205,10 +205,10 @@ export const drawLine: Variants = {
 // Viewport animation options
 export const viewportOnce = {
   once: true,
-  margin: "-100px",
+  margin: '-100px',
 };
 
 export const viewportRepeat = {
   once: false,
-  margin: "-50px",
+  margin: '-50px',
 };

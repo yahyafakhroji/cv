@@ -1,32 +1,32 @@
-import type { Metadata, Viewport } from "next";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import type { Metadata, Viewport } from 'next';
+import { GoogleAnalytics } from '@next/third-parties/google';
 
-import "./globals.css";
-import { SmoothScrollProvider } from "@/components/providers/smooth-scroll-provider";
-import { RESUME_DATA } from "@/data/resume-data";
+import './globals.css';
+import { SmoothScrollProvider } from '@/components/providers/smooth-scroll-provider';
+import { RESUME_DATA } from '@/data/resume-data';
 
 export const metadata: Metadata = {
   title: `${RESUME_DATA.name} | Full-Stack Developer`,
   description: RESUME_DATA.summary,
   keywords: [
-    "Full-Stack Developer",
-    "Web Developer",
-    "React",
-    "Next.js",
-    "TypeScript",
-    "Angular",
-    "Node.js",
+    'Full-Stack Developer',
+    'Web Developer',
+    'React',
+    'Next.js',
+    'TypeScript',
+    'Angular',
+    'Node.js',
     RESUME_DATA.name,
   ],
   authors: [{ name: RESUME_DATA.name }],
   openGraph: {
-    type: "website",
+    type: 'website',
     title: `${RESUME_DATA.name} | Full-Stack Developer`,
     description: RESUME_DATA.summary,
     siteName: RESUME_DATA.name,
   },
   twitter: {
-    card: "summary_large_image",
+    card: 'summary_large_image',
     title: `${RESUME_DATA.name} | Full-Stack Developer`,
     description: RESUME_DATA.summary,
   },
@@ -37,23 +37,16 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0d0614",
-  width: "device-width",
+  themeColor: '#0d0614',
+  width: 'device-width',
   initialScale: 1,
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <meta
-          httpEquiv="Content-Security-Policy"
-          content="upgrade-insecure-requests"
-        />
+        <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" />
         <meta name="apple-mobile-web-app-title" content="Hi Yahya's CV" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />

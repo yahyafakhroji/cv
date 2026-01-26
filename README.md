@@ -34,6 +34,7 @@ A modern, high-performance CV/Portfolio website with a retro 80s synthwave aesth
 
 - **Single Config File** - Update everything in [`src/data/resume-data.tsx`](./src/data/resume-data.tsx)
 - **TypeScript** - Full type safety throughout
+- **Git Hooks** - Automated code quality checks with Lefthook
 - **Auto Deploy** - Push to `main` branch triggers automatic deployment
 - **Hot Reload** - Fast local development with Next.js Turbopack
 
@@ -68,6 +69,13 @@ A modern, high-performance CV/Portfolio website with a retro 80s synthwave aesth
 - **[Lucide React](https://lucide.dev/)** - Minimal, tree-shakeable icon library
 - **[Radix UI Primitives](https://www.radix-ui.com/)** - Accessible UI components (Dialog, Slot)
 
+### Developer Tools
+
+- **[Lefthook](https://lefthook.dev/)** - Fast Git hooks manager
+- **[ESLint](https://eslint.org/)** - Code linting
+- **[Prettier](https://prettier.io/)** - Code formatting
+- **[TypeScript](https://www.typescriptlang.org/)** - Type checking
+
 ## 📦 Installation
 
 ```bash
@@ -87,6 +95,26 @@ bun dev
 
 # Open http://localhost:3000
 ```
+
+### Git Hooks
+
+This project uses Lefthook for automated code quality checks. Hooks are automatically installed on `bun install`.
+
+**Pre-commit checks:**
+
+- ESLint with auto-fix
+- TypeScript type checking
+- No `console.log` in source files
+
+**Pre-push checks:**
+
+- Full build validation
+
+**Commit message validation:**
+
+- Enforces [Conventional Commits](https://www.conventionalcommits.org/) format
+
+See [docs/LEFTHOOK.md](./docs/LEFTHOOK.md) for detailed documentation.
 
 ## 🏗️ Build & Deploy
 

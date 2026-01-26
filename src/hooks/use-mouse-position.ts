@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 interface MousePosition {
   x: number;
@@ -18,19 +18,17 @@ export function useMousePosition() {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
 
-    window.addEventListener("mousemove", updateMousePosition);
+    window.addEventListener('mousemove', updateMousePosition);
 
     return () => {
-      window.removeEventListener("mousemove", updateMousePosition);
+      window.removeEventListener('mousemove', updateMousePosition);
     };
   }, []);
 
   return mousePosition;
 }
 
-export function useRelativeMousePosition(
-  ref: React.RefObject<HTMLElement | null>
-) {
+export function useRelativeMousePosition(ref: React.RefObject<HTMLElement | null>) {
   const [position, setPosition] = useState({ x: 0.5, y: 0.5 });
 
   useEffect(() => {
@@ -44,10 +42,10 @@ export function useRelativeMousePosition(
       setPosition({ x: Math.max(0, Math.min(1, x)), y: Math.max(0, Math.min(1, y)) });
     };
 
-    element.addEventListener("mousemove", updatePosition);
+    element.addEventListener('mousemove', updatePosition);
 
     return () => {
-      element.removeEventListener("mousemove", updatePosition);
+      element.removeEventListener('mousemove', updatePosition);
     };
   }, [ref]);
 
