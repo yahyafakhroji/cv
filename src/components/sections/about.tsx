@@ -106,7 +106,7 @@ export function About() {
               <StaggerChildren className="grid grid-cols-3 gap-4" staggerDelay={0.1}>
                 <StaggerItem>
                   <GlowCard className="text-center p-4" glowColor="pink">
-                    <div className="text-3xl font-bold text-neon-pink">9+</div>
+                    <div className="text-3xl font-bold text-neon-pink">10+</div>
                     <div className="text-xs text-muted-foreground mt-1">Years Exp</div>
                   </GlowCard>
                 </StaggerItem>

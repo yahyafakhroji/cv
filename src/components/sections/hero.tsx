@@ -16,9 +16,9 @@ export function Hero() {
       <FloatingShapes />
 
       {/* Sunset sun */}
-      <div className="absolute bottom-[15%] left-1/2 -translate-x-1/2 z-0">
+      {/* <div className="absolute bottom-[15%] left-1/2 -translate-x-1/2 z-0">
         <SunsetSun size={280} />
-      </div>
+      </div> */}
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
@@ -63,7 +63,7 @@ export function Hero() {
         >
           Crafting digital experiences with modern web technologies.
           <br />
-          <span className="text-neon-pink">9+ years</span> of turning ideas into reality.
+          <span className="text-neon-pink">10+ years</span> of turning ideas into reality.
         </motion.p>
 
         {/* CTA Buttons */}
