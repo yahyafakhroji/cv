@@ -7,9 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "pages:build": "npx @opennextjs/cloudflare build",
-    "pages:dev": "npx @opennextjs/cloudflare preview",
-    "pages:deploy": "npx @opennextjs/cloudflare deploy"
+    "pages:build": "opennextjs-cloudflare build",
+    "pages:dev": "opennextjs-cloudflare preview",
+    "pages:deploy": "opennextjs-cloudflare deploy"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
