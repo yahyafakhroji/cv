@@ -7,3 +7,5 @@ export {
   useIsDesktop,
   usePrefersReducedMotion,
 } from './use-media-query';
+export { useMagneticEffect } from './use-magnetic-effect';
+export { useReducedMotion } from './use-reduced-motion';

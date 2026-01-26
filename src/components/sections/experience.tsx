@@ -8,7 +8,7 @@ import { RESUME_DATA } from '@/data/resume-data';
 
 export function Experience() {
   return (
-    <section id="experience" className="section relative">
+    <section id="experience" aria-labelledby="experience-heading" className="section relative">
       {/* Background grid lines */}
       <div
         className="absolute inset-0 opacity-30"
@@ -22,7 +22,7 @@ export function Experience() {
 
       <div className="container relative z-10 mx-auto px-4">
         <FadeIn>
-          <h2 className="section-heading">
+          <h2 id="experience-heading" className="section-heading">
             <span className="text-glow-pink">Work</span> Experience
           </h2>
         </FadeIn>

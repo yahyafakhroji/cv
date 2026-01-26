@@ -16,7 +16,10 @@ export function Hero() {
   const sunScale = useTransform(scrollY, [0, 500], [1, 1.5]); // Grows 50% bigger
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
+    <section
+      aria-label="Introduction"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden"
+    >
       {/* Background elements */}
       <GridBackground />
       <FloatingShapes />

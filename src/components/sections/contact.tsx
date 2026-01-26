@@ -14,7 +14,11 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="section relative overflow-hidden">
+    <section
+      id="contact"
+      aria-labelledby="contact-heading"
+      className="section relative overflow-hidden"
+    >
       {/* Background gradient */}
       <div
         className="absolute inset-0"
@@ -25,7 +29,7 @@ export function Contact() {
 
       <div className="container relative z-10 mx-auto px-4">
         <FadeIn>
-          <h2 className="section-heading">
+          <h2 id="contact-heading" className="section-heading">
             Let&apos;s <span className="text-glow-pink">Connect</span>
           </h2>
         </FadeIn>
@@ -45,7 +49,7 @@ export function Contact() {
             <MagneticButton className="mb-12 inline-block">
               <motion.a
                 href={`mailto:${RESUME_DATA.contact.email}`}
-                className="group relative inline-flex items-center gap-3 overflow-hidden rounded-xl px-8 py-4"
+                className="pulse-glow group relative inline-flex items-center gap-3 overflow-hidden rounded-xl px-8 py-4"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >

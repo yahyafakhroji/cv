@@ -27,7 +27,11 @@ const glowColors = {
 
 export function Skills() {
   return (
-    <section id="skills" className="section relative overflow-hidden">
+    <section
+      id="skills"
+      aria-labelledby="skills-heading"
+      className="section relative overflow-hidden"
+    >
       {/* Background effect */}
       <div
         className="absolute inset-0 opacity-20"
@@ -39,7 +43,7 @@ export function Skills() {
 
       <div className="container relative z-10 mx-auto px-4">
         <FadeIn>
-          <h2 className="section-heading">
+          <h2 id="skills-heading" className="section-heading">
             <span className="text-glow-cyan">Technical</span> Skills
           </h2>
         </FadeIn>

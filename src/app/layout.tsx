@@ -3,6 +3,7 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 
 import './globals.css';
 import { SmoothScrollProvider } from '@/components/providers/smooth-scroll-provider';
+import { CursorTrail } from '@/components/ui/cursor-trail';
 import { RESUME_DATA } from '@/data/resume-data';
 
 export const metadata: Metadata = {
@@ -64,7 +65,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
       </head>
-      <body className="font-sans antialiased">
+      <body className="scanlines noise-overlay font-sans antialiased">
+        <CursorTrail />
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
         <GoogleAnalytics gaId="G-KTXCV72QXG" />
       </body>

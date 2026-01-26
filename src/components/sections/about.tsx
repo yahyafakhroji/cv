@@ -16,10 +16,10 @@ export function About() {
   };
 
   return (
-    <section id="about" className="section relative">
+    <section id="about" aria-labelledby="about-heading" className="section relative">
       <div className="container mx-auto px-4">
         <FadeIn>
-          <h2 className="section-heading">
+          <h2 id="about-heading" className="section-heading">
             <span className="text-glow-cyan">About</span> Me
           </h2>
         </FadeIn>

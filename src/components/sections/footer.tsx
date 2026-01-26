@@ -9,7 +9,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative border-t border-border py-12">
+    <footer aria-label="Site footer" className="relative border-t border-border py-12">
       {/* Background gradient */}
       <div
         className="absolute inset-0"

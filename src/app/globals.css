@@ -390,10 +390,36 @@
 
   .section-heading {
     @apply mb-12 text-center text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl;
+    text-shadow:
+      0 0 10px hsl(var(--neon-purple) / 0.8),
+      0 0 20px hsl(var(--neon-purple) / 0.6),
+      0 0 40px hsl(var(--neon-purple) / 0.4),
+      0 0 80px hsl(var(--neon-purple) / 0.2);
   }
 }
 
 @layer utilities {
+  /* Email button pulse animation */
+  @keyframes pulse-glow {
+    0%,
+    100% {
+      box-shadow:
+        0 0 20px hsl(var(--neon-pink) / 0.3),
+        0 0 40px hsl(var(--neon-pink) / 0.2),
+        0 0 60px hsl(var(--neon-pink) / 0.1);
+    }
+    50% {
+      box-shadow:
+        0 0 30px hsl(var(--neon-pink) / 0.5),
+        0 0 60px hsl(var(--neon-pink) / 0.3),
+        0 0 90px hsl(var(--neon-pink) / 0.2);
+    }
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
   /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {
     *,

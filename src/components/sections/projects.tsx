@@ -9,10 +9,10 @@ export function Projects() {
   const glowColors = ['pink', 'cyan', 'purple'] as const;
 
   return (
-    <section id="projects" className="section relative">
+    <section id="projects" aria-labelledby="projects-heading" className="section relative">
       <div className="container mx-auto px-4">
         <FadeIn>
-          <h2 className="section-heading">
+          <h2 id="projects-heading" className="section-heading">
             Featured <span className="text-glow-purple">Projects</span>
           </h2>
         </FadeIn>
