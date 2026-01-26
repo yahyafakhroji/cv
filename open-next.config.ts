@@ -11,7 +11,13 @@ const config: OpenNextConfig = {
       queue: 'dummy',
     },
   },
-  edgeExternals: ['node:crypto'],
+  // Add more external modules to reduce bundle size
+  edgeExternals: [
+    'node:crypto',
+    'node:buffer',
+    'node:stream',
+    'node:util',
+  ],
   middleware: {
     external: true,
     override: {
@@ -23,6 +29,8 @@ const config: OpenNextConfig = {
       queue: 'dummy',
     },
   },
+  // Disable source maps in production to save space
+  disableSourceMaps: true,
 };
 
 export default config;
