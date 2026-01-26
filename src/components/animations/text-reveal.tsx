@@ -68,6 +68,7 @@ export function TypewriterText({ text, className, delay = 0, speed = 0.05 }: Typ
     <motion.span className={className}>
       {chars.map((char, index) => {
         const charDelay = delay + index * speed;
+        const isSpace = char === ' ';
         return (
           <motion.span key={index} className="relative inline-block">
             <motion.span
@@ -78,7 +79,7 @@ export function TypewriterText({ text, className, delay = 0, speed = 0.05 }: Typ
                 duration: 0.1,
               }}
             >
-              {char}
+              {isSpace ? '\u00A0' : char}
             </motion.span>
             {/* Cursor that appears at each character position during typing */}
             <motion.span
