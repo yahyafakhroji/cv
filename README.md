@@ -16,18 +16,19 @@ A modern, high-performance CV/Portfolio website with a retro 80s synthwave aesth
 ### Design & UX
 
 - **Retro 80s Synthwave Theme** - Neon colors, gradient effects, and nostalgic vibes
-- **Smooth Animations** - GSAP & Motion (Framer Motion) powered interactions
-- **Smooth Scrolling** - Lenis smooth scroll implementation
+- **Smooth Animations** - Motion (Framer Motion v12) powered interactions
+- **Native Smooth Scrolling** - CSS-based smooth scroll (no JavaScript required)
+- **Parallax Effects** - Sunset sun with scroll-based animations
 - **Responsive Design** - Mobile-first, works perfectly on all devices
-- **Print-Friendly** - Optimized layout for PDF export
 - **Dark Mode** - Synthwave dark theme with neon accents
 
 ### Performance
 
 - **Edge Deployment** - Cloudflare Workers with global CDN
+- **Optimized Bundle** - ~140KB smaller, fits in 3MB free tier limit
 - **Static Generation** - Pre-rendered pages for instant loads
 - **Image Optimization** - Next.js Image component with Cloudflare Images support
-- **100/100 Performance** - Optimized for speed and SEO
+- **Lightweight** - Minimal dependencies, maximum performance
 
 ### Developer Experience
 
@@ -50,11 +51,11 @@ A modern, high-performance CV/Portfolio website with a retro 80s synthwave aesth
 - **[Radix UI](https://www.radix-ui.com/)** - Headless UI components
 - **Custom Synthwave Theme** - Neon colors, gradients, and animations
 
-### Animation
+### Animation & Interactions
 
 - **[Motion](https://motion.dev/)** (Framer Motion v12) - Declarative animations
-- **[GSAP 3](https://greensock.com/gsap/)** - Professional-grade animations
-- **[Lenis](https://lenis.darkroom.engineering/)** - Smooth scroll library
+- **Native CSS** - Smooth scrolling and transitions
+- **Scroll-based animations** - Parallax effects with Motion hooks
 
 ### Deployment
 
@@ -64,8 +65,8 @@ A modern, high-performance CV/Portfolio website with a retro 80s synthwave aesth
 
 ### Icons & UI
 
-- **[Lucide React](https://lucide.dev/)** - Icon library
-- **[cmdk](https://cmdk.paco.me/)** - Command menu component
+- **[Lucide React](https://lucide.dev/)** - Minimal, tree-shakeable icon library
+- **[Radix UI Primitives](https://www.radix-ui.com/)** - Accessible UI components (Dialog, Slot)
 
 ## 📦 Installation
 
@@ -195,14 +196,6 @@ bun run pages:deploy     # Deploy to Cloudflare
 # Code Quality
 bun run lint             # Run ESLint
 ```
-
-## 🌐 Environment Variables
-
-No environment variables required for basic setup. Add as needed for:
-
-- Google Analytics
-- Contact form integrations
-- CMS integrations
 
 ## 📝 License
 
