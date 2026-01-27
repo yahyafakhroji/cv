@@ -13,9 +13,7 @@ export const RESUME_DATA = {
   summary:
     "I'm a Web Technologies Engineer passionate about crafting robust, user-friendly applications. Over 10+ years, I've contributed to high-impact projects at companies like Equinix and Futr Asia, working across the full web stack—from Angular and React frontends to Node.js and PHP backends. I thrive on learning new technologies and delivering solutions that balance innovation with reliability.",
   manifestoLines: [
-    'I architect digital experiences at the intersection of engineering precision and creative craft.',
-    'A decade of shipping — from startup MVPs to enterprise platforms serving thousands.',
-    'Based in Malang, Indonesia. Building for the world.',
+    'Turning ideas into production-grade web applications for startups, enterprises, and everything in between.',
   ],
   avatarUrl: 'https://avatars.githubusercontent.com/u/3510868?v=4',
   personalWebsiteUrl: 'https://hiyahya.dev',
