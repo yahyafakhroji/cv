@@ -1,10 +1,17 @@
 import type { Metadata, Viewport } from 'next';
+import { Orbitron } from 'next/font/google';
 import { GoogleAnalytics } from '@next/third-parties/google';
 
 import './globals.css';
 import { SmoothScrollProvider } from '@/components/providers/smooth-scroll-provider';
 import { CursorTrail } from '@/components/ui/cursor-trail';
 import { RESUME_DATA } from '@/data/resume-data';
+
+const orbitron = Orbitron({
+  subsets: ['latin'],
+  variable: '--font-orbitron',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: `${RESUME_DATA.name} | Web Technologies Engineer`,
@@ -45,7 +52,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={orbitron.variable} suppressHydrationWarning>
       <head>
         <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" />
         <meta name="apple-mobile-web-app-title" content="Hi Yahya's CV" />

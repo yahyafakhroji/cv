@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import { MapPin, Mail } from 'lucide-react';
@@ -8,6 +9,36 @@ import { StaggerChildren, StaggerItem } from '@/components/animations/stagger-ch
 import { GlowCard } from '@/components/ui/glow-card';
 import { RESUME_DATA } from '@/data/resume-data';
 import { GitHubIcon, LinkedInIcon } from '@/components/icons';
+import { useInView } from '@/hooks';
+
+function AnimatedCounter({ target, suffix = '' }: { target: number; suffix?: string }) {
+  const { ref, isInView } = useInView<HTMLSpanElement>();
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!isInView) return;
+
+    let start = 0;
+    const end = target;
+    const duration = 1500;
+    const stepTime = duration / end;
+
+    const timer = setInterval(() => {
+      start += 1;
+      setCount(start);
+      if (start >= end) clearInterval(timer);
+    }, stepTime);
+
+    return () => clearInterval(timer);
+  }, [isInView, target]);
+
+  return (
+    <span ref={ref} className="font-display tabular-nums">
+      {isInView ? count : 0}
+      {suffix}
+    </span>
+  );
+}
 
 export function About() {
   const socialIcons: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -16,10 +47,10 @@ export function About() {
   };
 
   return (
-    <section id="about" aria-labelledby="about-heading" className="section relative">
+    <section id="about" aria-labelledby="about-heading" className="section zone-about relative">
       <div className="container mx-auto px-4">
         <FadeIn>
-          <h2 id="about-heading" className="section-heading">
+          <h2 id="about-heading" className="section-heading font-display">
             <span className="text-glow-cyan">About</span> Me
           </h2>
         </FadeIn>
@@ -30,11 +61,11 @@ export function About() {
             <div className="flex flex-col items-center">
               {/* Avatar with glow border */}
               <motion.div
-                className="relative mb-8"
+                className="holographic relative mb-8"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-neon-pink via-neon-purple to-neon-cyan opacity-75 blur-md" />
+                <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-neon-cyan via-neon-purple to-neon-pink opacity-75 blur-md" />
                 <Image
                   src={RESUME_DATA.avatarUrl}
                   alt={RESUME_DATA.name}
@@ -97,26 +128,38 @@ export function About() {
                 <h3 className="gradient-text mb-4 text-2xl font-semibold">
                   {RESUME_DATA.initials} - Web Technology Enthusiast
                 </h3>
-                <p className="leading-relaxed text-muted-foreground">{RESUME_DATA.summary}</p>
+                <div className="space-y-3">
+                  {RESUME_DATA.manifestoLines.map((line, i) => (
+                    <FadeIn key={i} delay={0.5 + i * 0.2}>
+                      <p className="leading-relaxed text-muted-foreground">{line}</p>
+                    </FadeIn>
+                  ))}
+                </div>
               </div>
 
               {/* Quick stats */}
               <StaggerChildren className="grid grid-cols-3 gap-4" staggerDelay={0.1}>
                 <StaggerItem>
                   <GlowCard className="p-4 text-center" glowColor="pink">
-                    <div className="text-3xl font-bold text-neon-pink">10+</div>
+                    <div className="text-3xl font-bold text-neon-pink">
+                      <AnimatedCounter target={10} suffix="+" />
+                    </div>
                     <div className="mt-1 text-xs text-muted-foreground">Years Exp</div>
                   </GlowCard>
                 </StaggerItem>
                 <StaggerItem>
                   <GlowCard className="p-4 text-center" glowColor="cyan">
-                    <div className="text-3xl font-bold text-neon-cyan">13+</div>
+                    <div className="text-3xl font-bold text-neon-cyan">
+                      <AnimatedCounter target={13} suffix="+" />
+                    </div>
                     <div className="mt-1 text-xs text-muted-foreground">Projects</div>
                   </GlowCard>
                 </StaggerItem>
                 <StaggerItem>
                   <GlowCard className="p-4 text-center" glowColor="purple">
-                    <div className="text-3xl font-bold text-neon-purple">5</div>
+                    <div className="text-3xl font-bold text-neon-purple">
+                      <AnimatedCounter target={5} />
+                    </div>
                     <div className="mt-1 text-xs text-muted-foreground">Companies</div>
                   </GlowCard>
                 </StaggerItem>

@@ -66,6 +66,26 @@
     --sunset-3: 330 100% 56%;
     --sunset-4: 300 100% 56%;
     --sunset-5: 270 100% 56%;
+
+    /* ========================================
+       ZONE GRADIENT SYSTEM
+       ======================================== */
+
+    /* Zone background colors */
+    --zone-hero-bg: hsl(270 50% 4%);
+    --zone-about-bg: hsl(260 45% 5%);
+    --zone-experience-bg: hsl(240 40% 5%);
+    --zone-projects-bg: hsl(230 45% 4%);
+    --zone-skills-bg: hsl(250 50% 4%);
+    --zone-contact-bg: hsl(220 40% 5%);
+
+    /* Zone dominant neon accents */
+    --zone-hero-accent: var(--neon-pink);
+    --zone-about-accent: var(--neon-cyan);
+    --zone-experience-accent: var(--neon-cyan);
+    --zone-projects-accent: var(--neon-purple);
+    --zone-skills-accent: var(--neon-pink);
+    --zone-contact-accent: var(--neon-orange, hsl(30 100% 55%));
   }
 }
 
@@ -160,6 +180,14 @@
       0 0 20px hsl(var(--neon-purple) / 0.6),
       0 0 40px hsl(var(--neon-purple) / 0.4),
       0 0 80px hsl(var(--neon-purple) / 0.2);
+  }
+
+  .text-glow-orange {
+    text-shadow:
+      0 0 10px hsl(var(--neon-orange) / 0.8),
+      0 0 20px hsl(var(--neon-orange) / 0.6),
+      0 0 40px hsl(var(--neon-orange) / 0.4),
+      0 0 80px hsl(var(--neon-orange) / 0.2);
   }
 
   /* ========================================
@@ -413,6 +441,62 @@
     animation: pulse-glow 2s ease-in-out infinite;
   }
 
+  /* Orange pulse glow for contact CTA */
+  @keyframes pulse-glow-orange {
+    0%,
+    100% {
+      box-shadow:
+        0 0 20px hsl(var(--neon-orange) / 0.4),
+        0 0 40px hsl(var(--neon-orange) / 0.2),
+        0 0 60px hsl(var(--neon-orange) / 0.1);
+    }
+    50% {
+      box-shadow:
+        0 0 30px hsl(var(--neon-orange) / 0.6),
+        0 0 60px hsl(var(--neon-orange) / 0.4),
+        0 0 90px hsl(var(--neon-orange) / 0.2),
+        0 0 120px hsl(var(--neon-orange) / 0.1);
+    }
+  }
+
+  .pulse-glow-orange {
+    animation: pulse-glow-orange 2s ease-in-out infinite;
+  }
+
+  /* Orange glow border for contact CTA */
+  .glow-border-orange {
+    position: relative;
+  }
+
+  .glow-border-orange::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--neon-orange)),
+      hsl(var(--neon-pink)),
+      hsl(var(--neon-orange))
+    );
+    background-size: 300% 300%;
+    animation: gradient-shift 4s ease infinite;
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    opacity: 0.8;
+  }
+
+  .glow-border-orange:hover::before {
+    opacity: 1;
+  }
+
   /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {
     *,
@@ -460,4 +544,269 @@
       0 16px 32px rgba(180 100% 50% / 0.2),
       0 32px 64px rgba(0 0 0 / 0.4);
   }
+}
+
+/* ========================================
+   ZONE BACKGROUNDS
+   ======================================== */
+.zone-hero {
+  background-color: var(--zone-hero-bg);
+}
+.zone-about {
+  background-color: var(--zone-about-bg);
+}
+.zone-experience {
+  background-color: var(--zone-experience-bg);
+}
+.zone-projects {
+  background-color: var(--zone-projects-bg);
+}
+.zone-skills {
+  background-color: var(--zone-skills-bg);
+}
+.zone-contact {
+  background-color: var(--zone-contact-bg);
+}
+
+/* ========================================
+   ZONE TRANSITION - LIGHT SWEEP
+   ======================================== */
+.zone-transition {
+  position: relative;
+  height: 4px;
+  overflow: hidden;
+}
+
+.zone-transition::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--neon-cyan), var(--neon-pink), transparent);
+  animation: sweep 2s ease-in-out infinite;
+}
+
+@keyframes sweep {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* ========================================
+   VHS TRACKING DISTORTION
+   ======================================== */
+.vhs-tracking {
+  position: relative;
+  overflow: hidden;
+}
+
+.vhs-tracking::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  animation: vhs-line 8s linear infinite;
+}
+
+@keyframes vhs-line {
+  0% {
+    top: -2px;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+/* ========================================
+   CRT BOOT SEQUENCE
+   ======================================== */
+.crt-boot {
+  animation: crt-on 1.5s ease-out forwards;
+}
+
+@keyframes crt-on {
+  0% {
+    opacity: 0;
+    filter: brightness(0) saturate(0);
+    transform: scaleY(0.005) scaleX(0.2);
+  }
+  20% {
+    opacity: 1;
+    filter: brightness(2) saturate(0);
+    transform: scaleY(0.005) scaleX(0.8);
+  }
+  40% {
+    filter: brightness(1.5) saturate(0.5);
+    transform: scaleY(0.4) scaleX(1);
+  }
+  60% {
+    filter: brightness(1.2) saturate(0.8);
+    transform: scaleY(0.8) scaleX(1);
+  }
+  100% {
+    filter: brightness(1) saturate(1);
+    transform: scaleY(1) scaleX(1);
+  }
+}
+
+.crt-flicker {
+  animation: crt-flicker 0.15s ease-in-out;
+}
+
+@keyframes crt-flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  75% {
+    opacity: 0.4;
+  }
+}
+
+/* ========================================
+   HOLOGRAPHIC SHIMMER
+   ======================================== */
+.holographic {
+  position: relative;
+  overflow: hidden;
+}
+
+.holographic::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    transparent 20%,
+    hsla(180, 100%, 50%, 0.1) 40%,
+    hsla(330, 100%, 60%, 0.1) 60%,
+    transparent 80%
+  );
+  animation: holo-shift 3s ease-in-out infinite;
+}
+
+@keyframes holo-shift {
+  0%,
+  100% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+}
+
+/* ========================================
+   EQUALIZER BARS
+   ======================================== */
+.equalizer-bar {
+  height: 100%;
+  background: linear-gradient(to top, var(--neon-cyan), var(--neon-pink));
+  border-radius: 2px 2px 0 0;
+  transition: height 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.equalizer-bar.pulse {
+  animation: eq-pulse 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes eq-pulse {
+  0% {
+    height: var(--bar-height, 70%);
+  }
+  100% {
+    height: calc(var(--bar-height, 70%) + 5%);
+  }
+}
+
+/* ========================================
+   SCROLL-REACTIVE AMBIENT GLOW
+   ======================================== */
+.ambient-glow {
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.07;
+  filter: blur(120px);
+  transition: background-color 0.8s ease;
+}
+
+/* ========================================
+   FROSTED GLASS WITH CHROMATIC ABERRATION
+   ======================================== */
+.frosted-glass {
+  background: hsla(270, 30%, 10%, 0.6);
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  border: 1px solid hsla(270, 50%, 40%, 0.15);
+}
+
+/* ========================================
+   ZONE INDICATOR NAVIGATION
+   ======================================== */
+.zone-indicator {
+  position: fixed;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.zone-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: hsla(270, 50%, 60%, 0.3);
+  border: 1px solid hsla(270, 50%, 60%, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.zone-dot.active {
+  width: 10px;
+  height: 10px;
+  background: var(--active-color, var(--neon-pink));
+  box-shadow: 0 0 12px var(--active-color, var(--neon-pink));
+  border-color: var(--active-color, var(--neon-pink));
+}
+
+.zone-dot:hover {
+  background: hsla(270, 50%, 60%, 0.6);
+  transform: scale(1.3);
+}
+
+.zone-progress-line {
+  position: absolute;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background: hsla(270, 50%, 60%, 0.15);
+}
+
+.zone-progress-fill {
+  position: absolute;
+  top: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--neon-pink), var(--neon-cyan));
+  transition: height 0.3s ease;
 }

@@ -6,10 +6,17 @@ export const RESUME_DATA = {
   initials: 'YF',
   location: 'Malang, East Java, Indonesia',
   locationLink: 'https://www.google.com/maps/place/Malang',
+  tagline: 'Web Technologies Engineer — One stack to build it all',
+  greeting: 'Initializing...',
   about:
-    'Web Technologies Engineer | Exploring modern web frameworks & tools | 10+ years building scalable applications | Ex Equinix, Futr Asia, Packet',
+    'Web Technologies Engineer | One stack to build it all | 10+ years crafting scalable web applications',
   summary:
     "I'm a Web Technologies Engineer passionate about crafting robust, user-friendly applications. Over 10+ years, I've contributed to high-impact projects at companies like Equinix and Futr Asia, working across the full web stack—from Angular and React frontends to Node.js and PHP backends. I thrive on learning new technologies and delivering solutions that balance innovation with reliability.",
+  manifestoLines: [
+    'I architect digital experiences at the intersection of engineering precision and creative craft.',
+    'A decade of shipping — from startup MVPs to enterprise platforms serving thousands.',
+    'Based in Malang, Indonesia. Building for the world.',
+  ],
   avatarUrl: 'https://avatars.githubusercontent.com/u/3510868?v=4',
   personalWebsiteUrl: 'https://hiyahya.dev',
   contact: {
@@ -47,18 +54,11 @@ export const RESUME_DATA = {
       logo: Equinix,
       start: '2020',
       end: '2024',
+      hookLine:
+        "Engineered the digital layer for one of the world's largest data center companies.",
       description:
-        'Developed and maintained two key portals serving thousands of users: the Staff Portal (Angular 9+ with Angular Material) and Customer Portal (Next.js with Tailwind CSS). Collaborated with cross-functional teams to deliver feature enhancements and resolve critical issues, ensuring high availability and user satisfaction.',
-      techStack: [
-        'TypeScript',
-        'Angular',
-        'Angular Material',
-        'React',
-        'Nextjs',
-        'Tailwindcss',
-        'Jira (Project Management)',
-        'Slack',
-      ],
+        'Built and maintained Staff Portal (Angular) and Customer Portal (Next.js) serving thousands of enterprise users. Delivered feature enhancements across cross-functional teams ensuring high availability and seamless user experiences for bare-metal cloud infrastructure customers.',
+      techStack: ['TypeScript', 'Angular', 'Angular Material', 'React', 'Next.js', 'Tailwind CSS'],
     },
     {
       company: 'Futr Asia',
@@ -68,22 +68,19 @@ export const RESUME_DATA = {
       logo: ClevertechLogo,
       start: '2022',
       end: '2024',
+      hookLine:
+        "Architected a 5-app commerce ecosystem powering Indonesia's SME digital transformation.",
       description:
-        'Led the Lini ecosystem project as Full Stack Developer and Project Leader, architecting a suite of interconnected applications (Courier, Seller, Store, Mitra) using React, Angular, and GraphQL. Coordinated development workflows, mentored team members, and delivered production-ready PWAs with offline capabilities.',
+        'Led the Lini ecosystem from concept to production — Courier, Seller, Store, and Mitra apps. Shipped offline-first PWAs deployed as native Android apps via Capacitor. Mentored team members and coordinated cross-app development workflows using React, Angular, and real-time GraphQL.',
       techStack: [
         'Angular',
-        'React v18',
+        'React',
+        'TypeScript',
+        'GraphQL',
         'Chakra UI',
         'PWA',
-        'Graphql Client',
-        'Jotai (State management)',
-        'Immer',
-        'SCSS Preprocessor',
-        'ESlint',
-        'Typescript',
-        'Prettier',
+        'Capacitor',
         'Docker',
-        'Capacitor (for Android App)',
       ],
     },
     {
@@ -94,18 +91,11 @@ export const RESUME_DATA = {
       logo: JojoMobileLogo,
       start: '2018',
       end: '2020',
+      hookLine:
+        'Modernized bare-metal cloud infrastructure portals through a ground-up framework migration.',
       description:
-        'Modernized legacy portals by migrating from AngularJS to Angular 2+, improving performance and maintainability. Contributed to both Staff and Customer portals, working with React, Angular, and Laravel to deliver seamless user experiences for bare-metal cloud infrastructure customers.',
-      techStack: [
-        'AngularJS',
-        'Laravel',
-        'React',
-        'Angular',
-        'Angular Material',
-        'Bootstrap',
-        'Jira (Project Management)',
-        'Slack',
-      ],
+        'Migrated legacy AngularJS portals to Angular 2+, dramatically improving performance and maintainability. Contributed to both Staff and Customer portals, working across React, Angular, and Laravel to deliver seamless experiences for cloud infrastructure customers.',
+      techStack: ['Angular', 'React', 'TypeScript', 'Laravel', 'Bootstrap', 'Angular Material'],
     },
     {
       company: 'Dinkum Interactive',
@@ -115,20 +105,20 @@ export const RESUME_DATA = {
       logo: JojoMobileLogo,
       start: '2016',
       end: '2018',
+      hookLine:
+        'Extended e-commerce capabilities for global clients through custom WordPress engineering.',
       description:
-        'Developed custom WordPress and WooCommerce plugins for client projects, extending e-commerce functionality and integrating third-party APIs. Contributed to full-stack applications using Phalcon (PHP) and MithrilJS, and built responsive frontends with AngularJS and Material UI.',
+        'Developed custom WordPress and WooCommerce plugins with third-party API integrations, extending e-commerce functionality for international clients. Built full-stack applications using Phalcon PHP and MithrilJS with responsive AngularJS frontends.',
       techStack: [
-        'Wordpress',
+        'WordPress',
         'PHP',
         'CSS',
-        'JQuery',
-        'AngularJs',
-        'Phalcon Framework (PHP)',
-        'Mithril JS',
+        'jQuery',
+        'AngularJS',
+        'Phalcon Framework',
+        'MithrilJS',
         'Material UI',
         'Bootstrap',
-        'Trello (Task Management)',
-        'Slack',
       ],
     },
     {
@@ -139,32 +129,50 @@ export const RESUME_DATA = {
       logo: JojoMobileLogo,
       start: '2015',
       end: '2016',
+      hookLine: 'Translated design vision into pixel-perfect digital experiences.',
       description:
-        'Collaborated with designers to translate mockups into pixel-perfect WordPress themes. Built custom plugins and WooCommerce extensions to meet client requirements, focusing on performance and user experience.',
-      techStack: [
-        'Wordpress',
-        'PHP',
-        'CSS',
-        'JQuery',
-        'Bootstrap',
-        'Trello (Task Management)',
-        'Slack',
-        'Skype',
-      ],
+        'Collaborated with designers to build custom WordPress themes and WooCommerce extensions. Focused on performance optimization and delivering polished user experiences for diverse client projects.',
+      techStack: ['WordPress', 'PHP', 'CSS', 'jQuery', 'Bootstrap'],
     },
   ],
   skills: [
-    'JavaScript',
-    'TypeScript',
-    'Angular/AngularJS',
-    'React/Next.js',
-    'Vue/Nuxt',
-    'Node.js/Adonis/Nest',
-    'Ant Design/Chakra UI/Bootstrap/Angular Material',
-    'PHP/Wordpress',
-    'GraphQL',
-    'Git/Docker/Jira',
-    'MySQL/PostgreSQL',
+    {
+      category: 'frontend',
+      label: 'Frontend Craft',
+      items: [
+        'JavaScript',
+        'TypeScript',
+        'React/Next.js',
+        'Angular',
+        'Vue/Nuxt',
+        'Tailwind CSS',
+        'Chakra UI',
+        'Angular Material',
+        'Ant Design',
+        'Bootstrap',
+      ],
+    },
+    {
+      category: 'backend',
+      label: 'Backend Systems',
+      items: [
+        'Node.js',
+        'Adonis',
+        'NestJS',
+        'PHP',
+        'WordPress',
+        'Phalcon',
+        'Laravel',
+        'GraphQL',
+        'MySQL',
+        'PostgreSQL',
+      ],
+    },
+    {
+      category: 'tools',
+      label: 'DevOps & Tooling',
+      items: ['Git', 'Docker', 'CI/CD', 'PWA', 'Capacitor', 'Vite', 'Webpack'],
+    },
   ],
   projects: [
     {
@@ -181,6 +189,9 @@ export const RESUME_DATA = {
       ],
       description:
         'Mobile-first courier application built with React and Capacitor, enabling drivers to manage shipments efficiently with real-time tracking, offline support, and optimized routing. Part of the Lini ecosystem serving UMKM/SME businesses across Indonesia.',
+      tagline: "Real-time courier management for Indonesia's last-mile delivery",
+      impactLine:
+        'Enabled drivers to manage shipments with offline support and optimized routing across Indonesia',
       logo: ConsultlyLogo,
       timeline: 'Sep 2022 - Jan 2024',
       link: {
@@ -202,6 +213,8 @@ export const RESUME_DATA = {
       ],
       description:
         'Freelance Canvasser App is a versatile tool designed to streamline the canvassing process for freelance workers.',
+      tagline: 'Field canvassing tool for freelance sales networks',
+      impactLine: 'Streamlined canvassing operations for freelance workers across emerging markets',
       logo: ConsultlyLogo,
       timeline: 'Sep 2022 - Jan 2024',
       link: {
@@ -221,6 +234,9 @@ export const RESUME_DATA = {
         'PWA',
       ],
       description: 'Seller Center for UMKM/SME to manage their product and order.',
+      tagline: 'Commerce command center for small business owners',
+      impactLine:
+        'Empowered SMEs to manage products, orders, and storefronts from a single dashboard',
       logo: ConsultlyLogo,
       timeline: 'Sep 2022 - Jan 2024',
       link: {
@@ -241,6 +257,8 @@ export const RESUME_DATA = {
         'Tailwind CSS',
       ],
       description: 'B2C Platform for display product from UMKM/SME.',
+      tagline: "Digital storefront platform for Indonesia's small businesses",
+      impactLine: 'Gave SMEs a professional B2C presence to compete in the digital-first economy',
       logo: ConsultlyLogo,
       timeline: 'Sep 2022 - Jan 2024',
       link: {
@@ -261,6 +279,8 @@ export const RESUME_DATA = {
         'PWA',
       ],
       description: 'B2C collaboration with Nala Platform',
+      tagline: 'Cross-platform commerce collaboration',
+      impactLine: "Extended Lini's reach through strategic platform partnership with Nala",
       logo: ConsultlyLogo,
       timeline: 'Sep 2022 - Jan 2024',
       link: {
@@ -272,6 +292,8 @@ export const RESUME_DATA = {
       title: 'Keeppack Customer & Staff App',
       techStack: ['Side Project', 'Nuxt.Js', 'Ant Design'],
       description: 'Cowarehousing and eCommerce Fulfillment System',
+      tagline: 'Warehouse-as-a-service for e-commerce fulfillment',
+      impactLine: 'Streamlined co-warehousing and fulfillment operations for online sellers',
       logo: ConsultlyLogo,
       timeline: 'Jul 2019 - Apr 2022',
       link: {
@@ -284,6 +306,8 @@ export const RESUME_DATA = {
       techStack: ['Side Project', 'Typescript', 'Angular', 'Angular Material', 'Tailwind CSS'],
       description:
         'Automation in Workforce Management. Managing your workforce made simpler through our end to end automation',
+      tagline: 'End-to-end workforce automation platform',
+      impactLine: 'Simplified workforce management from scheduling to deployment',
       logo: ConsultlyLogo,
       timeline: 'Apr 2021 - Feb 2022',
     },
@@ -292,6 +316,8 @@ export const RESUME_DATA = {
       techStack: ['Side Project', 'Typescript', 'Angular', 'Angular Material', 'Tailwind CSS'],
       description:
         'Application that provides order fulfillment and product management services and is integrated with marketplaces.',
+      tagline: 'Marketplace-integrated warehouse management',
+      impactLine: 'Connected order fulfillment with major marketplace platforms',
       logo: ConsultlyLogo,
       timeline: 'Aug 2021 - Jan 2022',
       link: {
@@ -303,6 +329,8 @@ export const RESUME_DATA = {
       title: 'Bonbon Merchant App',
       techStack: ['Side Project', 'Typescript', 'Angular', 'Bootstrap', 'PWA'],
       description: 'Bonbon POS is the most advanced, feature-rich POS system on the market.',
+      tagline: 'Advanced POS system for modern restaurants',
+      impactLine: 'Delivered feature-rich point-of-sale powering restaurant operations',
       logo: ConsultlyLogo,
       timeline: 'Aug 2020 - Dec 2021',
     },
@@ -310,6 +338,8 @@ export const RESUME_DATA = {
       title: 'Moinves APP & API',
       techStack: ['Side Project', 'PHP', 'Prestashop', 'Bootstrap', 'JQuery'],
       description: 'Mutual Funds Investment App - by PT Mandiri Manajemen Investasi',
+      tagline: 'Mutual fund investment platform',
+      impactLine: 'Democratized investment access for PT Mandiri Manajemen Investasi users',
       logo: ConsultlyLogo,
       timeline: 'Jan 2018 - Apr 2020',
       link: {
@@ -322,6 +352,8 @@ export const RESUME_DATA = {
       techStack: ['Side Project', 'Nuxt.Js', 'Framework7', 'PWA'],
       description:
         'The restaurant app improves dining with digital features like table booking, food ordering, split bills, and easy payments.',
+      tagline: 'Digital dining experience app',
+      impactLine: 'Transformed restaurant visits with digital booking, ordering, and payments',
       logo: ConsultlyLogo,
       timeline: 'Sep 2019 - Feb 2020',
       link: {
@@ -334,6 +366,8 @@ export const RESUME_DATA = {
       techStack: ['Full Stack Dev', 'PHP', 'Phalcon Framework', 'Mithril JS'],
       description:
         'Copilot, our streamlined in-house system, integrates diverse data for quick decision-making in managing multiple clients and varied data sets.',
+      tagline: 'Multi-client data integration and decision intelligence',
+      impactLine: 'Unified diverse data sources for rapid decision-making across client portfolios',
       logo: ConsultlyLogo,
       timeline: 'Jul 2016 - Mar 2018',
     },
@@ -342,6 +376,8 @@ export const RESUME_DATA = {
       techStack: ['Frontend Dev', 'Javascript', 'Angular JS', 'Bootstrap'],
       description:
         'SaaS solution, revamps online ticketing and customer management with modern, user-friendly features.',
+      tagline: 'SaaS ticketing and customer management',
+      impactLine: 'Modernized online ticketing with user-friendly CRM capabilities',
       logo: ConsultlyLogo,
       timeline: 'Jul 2016 - Mar 2018',
       link: {
@@ -353,6 +389,8 @@ export const RESUME_DATA = {
       title: 'Site Survey Mobile App',
       techStack: ['Side Project', 'Javascript', 'Angular', 'Ionic Framework', 'Wordpress'],
       description: 'Geolocation-based site survey app that empowers cloud project management apps',
+      tagline: 'Geolocation-based field survey app',
+      impactLine: 'Empowered field teams with GPS-driven surveys and cloud project management',
       logo: ConsultlyLogo,
       timeline: 'Apr 2017 - Aug 2017',
       link: {

@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect, useCallback } from 'react';
 import { motion } from 'motion/react';
 import { textRevealContainer, textRevealChar } from '@/lib/animations';
 
@@ -153,5 +154,98 @@ export function GlitchText({ text, className }: GlitchTextProps) {
       </motion.span>
       <span className="relative">{text}</span>
     </motion.span>
+  );
+}
+
+interface CyclingTypewriterProps {
+  lines: readonly string[];
+  className?: string;
+  speed?: number;
+  pauseDuration?: number;
+  initialDelay?: number;
+}
+
+export function CyclingTypewriter({
+  lines,
+  className,
+  speed = 40,
+  pauseDuration = 2500,
+  initialDelay = 1200,
+}: CyclingTypewriterProps) {
+  const [currentLineIndex, setCurrentLineIndex] = useState(0);
+  const [displayText, setDisplayText] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [started, setStarted] = useState(false);
+
+  // Start after initial delay
+  useEffect(() => {
+    const timer = setTimeout(() => setStarted(true), initialDelay);
+    return () => clearTimeout(timer);
+  }, [initialDelay]);
+
+  const currentLine = lines[currentLineIndex];
+
+  const handleTypingCycle = useCallback(() => {
+    if (!started) return;
+
+    if (!isTyping && !isDeleting) {
+      // Start typing
+      setIsTyping(true);
+      setDisplayText('');
+      return;
+    }
+
+    if (isTyping) {
+      if (displayText.length < currentLine.length) {
+        // Type next character
+        setDisplayText(currentLine.slice(0, displayText.length + 1));
+      } else {
+        // Finished typing, pause then start deleting
+        setIsTyping(false);
+        setTimeout(() => setIsDeleting(true), pauseDuration);
+      }
+      return;
+    }
+
+    if (isDeleting) {
+      if (displayText.length > 0) {
+        // Delete character
+        setDisplayText(displayText.slice(0, -1));
+      } else {
+        // Finished deleting, move to next line
+        setIsDeleting(false);
+        setCurrentLineIndex((prev) => (prev + 1) % lines.length);
+      }
+    }
+  }, [started, isTyping, isDeleting, displayText, currentLine, lines.length, pauseDuration]);
+
+  useEffect(() => {
+    if (!started) return;
+
+    // Start the first typing cycle
+    if (!isTyping && !isDeleting && displayText === '') {
+      setIsTyping(true);
+      return;
+    }
+
+    const typeSpeed = isDeleting ? speed / 2 : speed;
+    const timer = setTimeout(handleTypingCycle, typeSpeed);
+    return () => clearTimeout(timer);
+  }, [started, handleTypingCycle, isTyping, isDeleting, displayText, speed]);
+
+  return (
+    <span className={className}>
+      {displayText}
+      <motion.span
+        className="ml-[1px] inline-block h-[1em] w-[2px] bg-neon-pink align-middle"
+        animate={{ opacity: [1, 1, 0, 0] }}
+        transition={{
+          duration: 0.8,
+          repeat: Infinity,
+          times: [0, 0.5, 0.5, 1],
+        }}
+      />
+    </span>
   );
 }

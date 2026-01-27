@@ -98,7 +98,7 @@ module.exports = {
           'Consolas',
           'monospace',
         ],
-        display: ['Space Grotesk', 'system-ui', 'sans-serif'],
+        display: ['var(--font-orbitron)', 'Orbitron', 'sans-serif'],
       },
       keyframes: {
         'accordion-down': {
@@ -185,6 +185,20 @@ module.exports = {
               '0 0 5px hsl(var(--neon-purple) / 0.5), 0 0 20px hsl(var(--neon-purple) / 0.3)',
           },
         },
+        sweep: {
+          '0%': { left: '-100%' },
+          '100%': { left: '100%' },
+        },
+        'eq-pulse': {
+          '0%': { height: 'var(--bar-height, 70%)' },
+          '100%': { height: 'calc(var(--bar-height, 70%) + 5%)' },
+        },
+        'crt-on': {
+          '0%': { opacity: '0', filter: 'brightness(0)', transform: 'scaleY(0.005) scaleX(0.2)' },
+          '20%': { opacity: '1', filter: 'brightness(2)', transform: 'scaleY(0.005) scaleX(0.8)' },
+          '60%': { filter: 'brightness(1.2)', transform: 'scaleY(0.8) scaleX(1)' },
+          '100%': { filter: 'brightness(1)', transform: 'scaleY(1) scaleX(1)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -197,6 +211,9 @@ module.exports = {
         'text-flicker': 'text-flicker 4s ease-in-out infinite',
         scanline: 'scanline 8s linear infinite',
         'border-glow': 'border-glow 4s ease-in-out infinite',
+        sweep: 'sweep 2s ease-in-out infinite',
+        'eq-pulse': 'eq-pulse 1.5s ease-in-out infinite alternate',
+        'crt-on': 'crt-on 1.5s ease-out forwards',
       },
       backgroundImage: {
         'grid-pattern':

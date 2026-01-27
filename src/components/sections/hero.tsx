@@ -5,7 +5,7 @@ import { ChevronDown } from 'lucide-react';
 import { GridBackground } from '@/components/ui/grid-background';
 import { SunsetSun } from '@/components/ui/sunset-sun';
 import { FloatingShapes } from '@/components/ui/floating-shapes';
-import { TypewriterText } from '@/components/animations/text-reveal';
+import { TypewriterText, CyclingTypewriter } from '@/components/animations/text-reveal';
 import { RESUME_DATA } from '@/data/resume-data';
 
 export function Hero() {
@@ -17,8 +17,9 @@ export function Hero() {
 
   return (
     <section
+      id="hero"
       aria-label="Introduction"
-      className="relative flex min-h-screen items-center justify-center overflow-hidden"
+      className="zone-hero relative flex min-h-screen items-center justify-center overflow-hidden"
     >
       {/* Background elements */}
       <GridBackground />
@@ -54,34 +55,37 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mb-6 text-5xl font-bold drop-shadow-[0_0_25px_rgba(0,0,0,0.8)] md:text-7xl lg:text-8xl"
+          className="mb-6 font-display text-5xl font-bold drop-shadow-[0_0_25px_rgba(0,0,0,0.8)] md:text-7xl lg:text-8xl"
         >
           <span className="gradient-text">{RESUME_DATA.name}</span>
         </motion.h1>
 
-        {/* Title */}
+        {/* Tagline */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="mb-8 text-2xl font-light md:text-3xl lg:text-4xl"
+          className="mb-8 text-xl font-light md:text-2xl lg:text-3xl"
         >
           <span className="text-foreground/80">
-            <TypewriterText text="Web Technologies Engineer" delay={1.2} speed={0.08} />
+            <TypewriterText text={RESUME_DATA.tagline} delay={1.2} speed={0.06} />
           </span>
         </motion.div>
 
-        {/* Tagline */}
-        <motion.p
+        {/* Manifesto - cycling lines */}
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.6 }}
-          className="mx-auto mb-12 max-w-2xl text-lg text-muted-foreground drop-shadow-[0_0_15px_rgba(0,0,0,0.9)] md:text-xl"
+          className="mx-auto mb-12 h-[3em] max-w-2xl text-lg text-muted-foreground drop-shadow-[0_0_15px_rgba(0,0,0,0.9)] md:text-xl"
         >
-          Engineering modern web experiences with cutting-edge technologies.
-          <br />
-          <span className="text-neon-pink">10+ years</span> of turning ideas into reality.
-        </motion.p>
+          <CyclingTypewriter
+            lines={RESUME_DATA.manifestoLines}
+            initialDelay={4000}
+            speed={35}
+            pauseDuration={3000}
+          />
+        </motion.div>
 
         {/* CTA Buttons */}
         <motion.div
