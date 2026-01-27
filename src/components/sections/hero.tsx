@@ -5,7 +5,7 @@ import { ChevronDown } from 'lucide-react';
 import { GridBackground } from '@/components/ui/grid-background';
 import { SunsetSun } from '@/components/ui/sunset-sun';
 import { FloatingShapes } from '@/components/ui/floating-shapes';
-import { TypewriterText, CyclingTypewriter } from '@/components/animations/text-reveal';
+import { TypewriterText } from '@/components/animations/text-reveal';
 import { RESUME_DATA } from '@/data/resume-data';
 
 export function Hero() {
@@ -72,20 +72,20 @@ export function Hero() {
           </span>
         </motion.div>
 
-        {/* Manifesto - cycling lines */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.6 }}
-          className="mx-auto mb-12 h-[3em] max-w-2xl text-lg text-muted-foreground drop-shadow-[0_0_15px_rgba(0,0,0,0.9)] md:text-xl"
-        >
-          <CyclingTypewriter
-            lines={RESUME_DATA.manifestoLines}
-            initialDelay={4000}
-            speed={35}
-            pauseDuration={3000}
-          />
-        </motion.div>
+        {/* Manifesto lines - fade in sequentially */}
+        <div className="mx-auto mb-12 max-w-2xl space-y-2">
+          {RESUME_DATA.manifestoLines.map((line, i) => (
+            <motion.p
+              key={i}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 2.5 + i * 0.4 }}
+              className="text-base text-muted-foreground drop-shadow-[0_0_15px_rgba(0,0,0,0.9)] md:text-lg"
+            >
+              {line}
+            </motion.p>
+          ))}
+        </div>
 
         {/* CTA Buttons */}
         <motion.div
