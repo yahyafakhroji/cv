@@ -35,3 +35,9 @@ pnpm-lock.yaml
 # Git
 .git
 .gitignore
+
+# Claude
+.claude
+.claude-flow
+.swarm
+.mcp.json

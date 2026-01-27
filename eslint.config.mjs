@@ -23,6 +23,10 @@ export default [
       '!eslint.config.mjs',
       'postcss.config.js',
       'tailwind.config.js',
+      '.claude/**',
+      '.claude-flow/**',
+      '.swarm/**',
+      '.mcp.json',
     ],
   },
 
