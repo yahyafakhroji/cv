@@ -1,0 +1,14 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-paper: #F1F1ED;
+  --color-ink: #17181B;
+  --color-muted: #6B6E76;
+  --color-line: #DCDBD4;
+  --color-accent: #2B43C7;
+
+  --font-display: 'Bricolage Grotesque', sans-serif;
+  --font-body: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
+
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+}

@@ -1,0 +1,30 @@
+@import './tokens.css';
+@import '@fontsource/bricolage-grotesque/index.css';
+@import '@fontsource/hanken-grotesk/400.css';
+@import '@fontsource/hanken-grotesk/500.css';
+@import '@fontsource/hanken-grotesk/600.css';
+@import '@fontsource/hanken-grotesk/700.css';
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--color-paper); overflow-anchor: none; }
+body { color: var(--color-ink); font-family: var(--font-body); -webkit-font-smoothing: antialiased; overflow-x: clip; }
+::selection { background: var(--color-accent); color: var(--color-paper); }
+
+@keyframes tl-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(43,67,199,0.45); }
+  70%  { box-shadow: 0 0 0 7px rgba(43,67,199,0); }
+  100% { box-shadow: 0 0 0 0 rgba(43,67,199,0); }
+}
+
+.dotgrid-base, .dotgrid-spot { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+.dotgrid-base { background-image: radial-gradient(circle, rgba(23,24,27,0.055) 1.1px, transparent 1.7px); background-size: 27px 27px; }
+.dotgrid-spot {
+  background-image: radial-gradient(circle, rgba(43,67,199,0.4) 1.4px, transparent 2px);
+  background-size: 27px 27px;
+  -webkit-mask-image: radial-gradient(240px circle at var(--mx,50vw) var(--my,42vh), #000 0%, rgba(0,0,0,0.26) 52%, transparent 76%);
+  mask-image: radial-gradient(240px circle at var(--mx,50vw) var(--my,42vh), #000 0%, rgba(0,0,0,0.26) 52%, transparent 76%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dotgrid-spot { display: none; }
+}
