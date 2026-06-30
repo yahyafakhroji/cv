@@ -56,7 +56,7 @@ and `robots.txt`.
   reveal, scramble, hero entrance, experience scroll-spy), wired once from `index.astro`.
   All respect `prefers-reduced-motion` and degrade to a fully visible base state.
 - Design tokens in `src/styles/tokens.css`; base/keyframes/dot-grid in `global.css`.
-- The original Claude Design prototype is kept under `design-reference/` (not shipped).
+- The original Claude Design prototype lives in `design-reference/` locally (kept out of the repo).
 
 ## Deploy
 

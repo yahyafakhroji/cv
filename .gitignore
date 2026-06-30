@@ -8,3 +8,5 @@ dist/
 .superpowers/
 .playwright-mcp/
 *.local.png
+docs/
+design-reference/
