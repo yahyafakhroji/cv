@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:#0B0B0C}
+  ::selection{background:#C6F24E;color:#0B0B0C}
+  @keyframes tm-blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+  @keyframes tm-grain{0%{transform:translate(0,0)}25%{transform:translate(-2%,1%)}50%{transform:translate(1.5%,-2%)}75%{transform:translate(-1%,-1.5%)}100%{transform:translate(0,0)}}
+  @keyframes tm-pulse{0%{box-shadow:0 0 0 0 rgba(198,242,78,0.5)}70%{box-shadow:0 0 0 7px rgba(198,242,78,0)}100%{box-shadow:0 0 0 0 rgba(198,242,78,0)}}
+  @keyframes tm-scan{0%{transform:translateY(0);opacity:0}40%{opacity:1}100%{transform:translateY(18px);opacity:0}}
+</style>
+</helmet>
+<div ref="{{ setRoot }}" id="top" style="position:relative;min-height:100vh;width:100%;--bg:#0B0B0C;--ink:#EDEAE3;--muted:#8C8C84;--line:rgba(237,234,227,0.11);--line2:rgba(237,234,227,0.055);--accent:#C6F24E;background:var(--bg);color:var(--ink);font-family:'Space Grotesk',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden">
+
+  <!-- faint engineering grid -->
+  <div aria-hidden="true" style="position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(var(--line2) 1px,transparent 1px),linear-gradient(90deg,var(--line2) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(circle at 50% 30%,#000 0%,transparent 78%);-webkit-mask-image:radial-gradient(circle at 50% 30%,#000 0%,transparent 78%)"></div>
+  <!-- cursor-reactive glow -->
+  <div data-glow aria-hidden="true" style="position:fixed;left:0;top:0;z-index:0;width:620px;height:620px;margin:-310px 0 0 -310px;pointer-events:none;border-radius:50%;background:radial-gradient(circle,rgba(198,242,78,0.14),rgba(198,242,78,0.05) 38%,transparent 70%);filter:blur(20px);transform:translate(50vw,42vh)"></div>
+  <sc-if value="{{ showGrain }}" hint-placeholder-val="{{ true }}">
+    <div aria-hidden="true" style="position:fixed;inset:-20%;z-index:1;pointer-events:none;opacity:0.06;mix-blend-mode:screen;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E&quot;);animation:tm-grain 8s steps(5) infinite"></div>
+  </sc-if>
+
+  <nav data-fade data-delay="40" style="position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:clamp(13px,1.8vw,18px) clamp(20px,5vw,64px);background:rgba(11,11,12,0.6);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)">
+    <a href="#top" style="display:inline-flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-weight:500;font-size:14px;letter-spacing:0.02em;color:var(--ink);text-decoration:none">yahya<span style="color:var(--accent)">.</span>fakhroji</a>
+    <div style="display:flex;align-items:center;gap:clamp(14px,2vw,26px)">
+      <span style="display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)"><span style="width:7px;height:7px;border-radius:50%;background:var(--accent);animation:tm-pulse 2.4s infinite"></span>available</span>
+      <a data-magnetic href="#contact" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--bg);text-decoration:none;background:var(--accent);border-radius:5px;padding:8px 15px;display:inline-block;will-change:transform;transition:opacity 0.25s ease" style-hover="opacity:0.82">get in touch →</a>
+    </div>
+  </nav>
+
+  <div style="position:relative;z-index:2">
+
+    <!-- HERO -->
+    <header data-screen-label="Hero" style="min-height:100vh;display:flex;align-items:center;max-width:1180px;margin:0 auto;padding:120px clamp(20px,5vw,64px) 80px">
+      <div style="display:flex;flex-wrap:wrap;gap:clamp(36px,6vw,80px);align-items:center;width:100%">
+        <div style="flex:3 1 520px">
+          <div data-fade data-delay="20" style="display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.04em;color:var(--muted);margin-bottom:clamp(20px,4vw,38px)">
+            <span style="color:var(--accent)">//</span> senior software engineer
+          </div>
+          <h1 style="margin:0;font-weight:700;letter-spacing:-0.04em;line-height:0.9;font-size:clamp(52px,11.5vw,150px)">
+            <sc-for list="{{ nameWords }}" as="word" hint-placeholder-count="2"><span style="display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:0.16em;margin-bottom:-0.16em;margin-right:0.12em"><sc-for list="{{ word.letters }}" as="ch" hint-placeholder-count="5"><span data-letter style="display:inline-block;will-change:transform">{{ ch.c }}</span></sc-for></span></sc-for><span style="display:inline-block;width:0.5em;height:0.86em;background:var(--accent);vertical-align:baseline;margin-left:0.06em;animation:tm-blink 1.1s steps(1) infinite"></span>
+          </h1>
+          <div data-fade data-delay="540" style="margin-top:clamp(22px,3vw,34px);font-family:'JetBrains Mono',monospace;font-size:clamp(14px,1.7vw,19px);color:var(--muted)">building for&nbsp;<span data-scramble style="color:var(--accent)">Web</span></div>
+          <p data-fade data-delay="640" style="max-width:560px;margin:clamp(20px,2.6vw,28px) 0 0;font-size:clamp(17px,1.9vw,22px);line-height:1.55;color:var(--ink)">{{ cv.lead }}</p>
+          <div data-fade data-delay="760" style="display:flex;flex-wrap:wrap;gap:10px 14px;margin-top:clamp(26px,4vw,42px);font-family:'JetBrains Mono',monospace;font-size:13px">
+            <a data-magnetic href="mailto:contact@hiyahya.dev" style="color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:6px;padding:9px 15px;display:inline-block;will-change:transform;transition:border-color 0.25s ease,color 0.25s ease" style-hover="border-color:var(--accent);color:var(--accent)">email →</a>
+            <a data-magnetic href="https://github.com/yahyafakhroji" target="_blank" style="color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:6px;padding:9px 15px;display:inline-block;will-change:transform;transition:border-color 0.25s ease,color 0.25s ease" style-hover="border-color:var(--accent);color:var(--accent)">github →</a>
+            <a data-magnetic href="https://linkedin.com/in/yahya-fakhroji" target="_blank" style="color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:6px;padding:9px 15px;display:inline-block;will-change:transform;transition:border-color 0.25s ease,color 0.25s ease" style-hover="border-color:var(--accent);color:var(--accent)">linkedin →</a>
+          </div>
+        </div>
+        <div data-fade data-delay="860" style="flex:1 1 240px;min-width:230px;border:1px solid var(--line);border-radius:10px;padding:clamp(18px,2vw,24px);background:rgba(237,234,227,0.02);font-family:'JetBrains Mono',monospace;font-size:12.5px">
+          <div style="display:flex;align-items:center;gap:8px;color:var(--muted);margin-bottom:16px;font-size:11px;letter-spacing:0.12em">STATUS</div>
+          <div style="display:flex;flex-direction:column;gap:13px">
+            <div style="display:flex;justify-content:space-between;gap:10px"><span style="color:var(--muted)">avail</span><span style="color:var(--accent);display:inline-flex;align-items:center;gap:7px"><span style="width:6px;height:6px;border-radius:50%;background:var(--accent);animation:tm-pulse 2.4s infinite"></span>open</span></div>
+            <sc-for list="{{ cv.facts }}" as="f" hint-placeholder-count="4">
+              <div style="display:flex;justify-content:space-between;gap:10px"><span style="color:var(--muted)">{{ f.kl }}</span><span style="color:var(--ink);text-align:right">{{ f.v }}</span></div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      <div data-fade data-delay="980" style="position:absolute;bottom:36px;left:clamp(20px,5vw,64px);display:flex;align-items:center;gap:11px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted)">
+        <span style="position:relative;width:1px;height:30px;background:var(--line);overflow:hidden"><span style="position:absolute;inset:0;background:var(--accent);animation:tm-scan 1.8s ease-in-out infinite"></span></span>scroll
+      </div>
+    </header>
+
+    <!-- ABOUT -->
+    <section data-screen-label="About" style="padding:clamp(64px,9vw,130px) 0">
+      <div style="max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,64px)">
+        <div data-reveal style="display:flex;align-items:baseline;gap:14px;margin-bottom:clamp(28px,4vw,52px)">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent)">01</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted)">profile</span>
+          <span style="flex:1;height:1px;background:var(--line)"></span>
+        </div>
+        <p data-reveal style="margin:0;max-width:900px;font-size:clamp(20px,2.6vw,32px);line-height:1.45;letter-spacing:-0.015em;font-weight:500;text-wrap:pretty">{{ cv.profile }}</p>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section data-screen-label="Skills" style="padding:clamp(48px,7vw,100px) 0">
+      <div style="max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,64px)">
+        <div data-reveal style="display:flex;align-items:baseline;gap:14px;margin-bottom:clamp(20px,3vw,40px)">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent)">02</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted)">stack</span>
+          <span style="flex:1;height:1px;background:var(--line)"></span>
+        </div>
+        <sc-for list="{{ cv.skills }}" as="s" hint-placeholder-count="7">
+          <div data-reveal style="display:flex;flex-wrap:wrap;gap:8px clamp(24px,4vw,56px);padding:clamp(16px,2vw,22px) 0;border-top:1px solid var(--line)">
+            <div style="flex:1 1 220px;min-width:160px;font-size:clamp(16px,1.6vw,20px);font-weight:600;letter-spacing:-0.01em">{{ s.label }}</div>
+            <div style="flex:3 1 480px;font-family:'JetBrains Mono',monospace;font-size:clamp(13px,1.3vw,15px);line-height:1.7;color:var(--muted)">{{ s.items }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section data-screen-label="Experience" style="padding:clamp(56px,8vw,120px) 0">
+      <div style="max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,64px)">
+        <div data-reveal style="display:flex;align-items:baseline;gap:14px;margin-bottom:clamp(20px,3vw,40px)">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent)">03</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted)">experience</span>
+          <span style="flex:1;height:1px;background:var(--line)"></span>
+        </div>
+        <sc-for list="{{ expList }}" as="job" hint-placeholder-count="4">
+          <article data-reveal style="position:relative;display:flex;flex-wrap:wrap;gap:clamp(14px,3vw,48px);padding:clamp(26px,3.5vw,42px) clamp(16px,2vw,24px);margin:0 calc(-1 * clamp(16px,2vw,24px));border-top:1px solid var(--line);border-radius:8px;transition:background 0.35s ease,box-shadow 0.35s ease" style-hover="background:rgba(198,242,78,0.04);box-shadow:inset 2px 0 0 var(--accent)">
+            <div style="flex:1 1 180px;min-width:140px;display:flex;flex-direction:column;gap:6px">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:clamp(30px,3.6vw,46px);line-height:1;font-weight:500;color:var(--line);-webkit-text-stroke:0">{{ job.no }}</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">{{ job.period }}</span>
+            </div>
+            <div style="flex:4 1 520px">
+              <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px;margin-bottom:4px">
+                <h3 style="margin:0;font-size:clamp(24px,3vw,38px);font-weight:600;letter-spacing:-0.025em">{{ job.company }}</h3>
+                <sc-if value="{{ job.current }}" hint-placeholder-val="{{ true }}"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);border:1px solid var(--accent);border-radius:100px;padding:3px 9px">now</span></sc-if>
+              </div>
+              <div style="font-size:clamp(15px,1.7vw,19px);font-weight:500;color:var(--ink);margin-bottom:4px">{{ job.role }}</div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);margin-bottom:16px">{{ job.location }}</div>
+              <p style="margin:0 0 16px;font-size:clamp(15px,1.6vw,18px);line-height:1.5;color:var(--ink);max-width:640px;text-wrap:pretty">{{ job.summary }}</p>
+              <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px">
+                <sc-for list="{{ job.bullets }}" as="b" hint-placeholder-count="3">
+                  <li style="position:relative;padding-left:22px;font-size:clamp(13px,1.4vw,15px);line-height:1.6;color:var(--muted);text-wrap:pretty"><span style="position:absolute;left:0;top:0.6em;width:7px;height:7px;border:1px solid var(--accent);border-radius:1px"></span>{{ b }}</li>
+                </sc-for>
+              </ul>
+            </div>
+          </article>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section data-screen-label="Projects" style="padding:clamp(56px,8vw,120px) 0">
+      <div style="max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,64px)">
+        <div data-reveal style="display:flex;align-items:baseline;gap:14px;margin-bottom:clamp(28px,4vw,56px)">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent)">04</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted)">selected_projects</span>
+          <span style="flex:1;height:1px;background:var(--line)"></span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:clamp(36px,5vw,60px)">
+          <sc-for list="{{ cv.projectGroups }}" as="grp" hint-placeholder-count="4">
+            <div data-reveal>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.06em;color:var(--accent);margin-bottom:18px">› {{ grp.label }}</div>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(14px,1.6vw,22px)">
+                <sc-for list="{{ grp.items }}" as="p" hint-placeholder-count="3">
+                  <div style="display:flex;flex-direction:column;gap:10px;padding:clamp(18px,2vw,24px);background:rgba(237,234,227,0.025);border:1px solid var(--line);border-radius:10px;transition:transform 0.3s cubic-bezier(0.22,1,0.36,1),border-color 0.3s ease,background 0.3s ease" style-hover="transform:translateY(-4px);border-color:var(--accent);background:rgba(198,242,78,0.05)">
+                    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px">
+                      <h4 style="margin:0;font-size:clamp(18px,2vw,23px);font-weight:600;letter-spacing:-0.02em">{{ p.name }}</h4>
+                      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);white-space:nowrap">{{ p.period }}</span>
+                    </div>
+                    <p style="margin:0;font-size:14px;line-height:1.5;color:var(--muted);flex:1;text-wrap:pretty">{{ p.desc }}</p>
+                    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);padding-top:4px">{{ p.stack }}</div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <!-- OPEN SOURCE -->
+    <section data-screen-label="Open Source" style="padding:clamp(48px,7vw,100px) 0">
+      <div style="max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,64px)">
+        <div data-reveal style="display:flex;align-items:baseline;gap:14px;margin-bottom:clamp(20px,3vw,40px)">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent)">05</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted)">open_source</span>
+          <span style="flex:1;height:1px;background:var(--line)"></span>
+        </div>
+        <sc-for list="{{ cv.openSource }}" as="o" hint-placeholder-count="3">
+          <div data-reveal style="display:flex;flex-wrap:wrap;align-items:baseline;gap:8px clamp(20px,4vw,48px);padding:clamp(18px,2.4vw,28px) 0;border-top:1px solid var(--line)">
+            <div style="flex:1 1 200px;min-width:150px;font-size:clamp(18px,2vw,24px);font-weight:600;letter-spacing:-0.02em">{{ o.name }}</div>
+            <div style="flex:2 1 360px;font-size:clamp(14px,1.5vw,17px);line-height:1.5;color:var(--muted)">{{ o.desc }}</div>
+            <div style="flex:1 1 200px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);text-align:right">{{ o.stack }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" data-screen-label="Contact" style="padding:clamp(80px,12vw,170px) 0 clamp(60px,8vw,100px);border-top:1px solid var(--line)">
+      <div style="max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,64px)">
+        <div data-reveal style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:clamp(24px,4vw,44px)">06 — contact</div>
+        <h2 data-reveal style="margin:0;font-size:clamp(38px,7vw,94px);font-weight:600;letter-spacing:-0.04em;line-height:0.98;max-width:14ch">Let's ship something <span style="color:var(--accent)">solid</span>.</h2>
+        <p data-reveal data-reveal-delay="80" style="margin:clamp(22px,3vw,32px) 0 clamp(34px,5vw,52px);font-size:clamp(17px,2vw,22px);color:var(--muted);max-width:560px;line-height:1.5">Open to senior frontend & full-stack roles and contracts — remote, worldwide. Usually reply within a day.</p>
+        <a data-magnetic data-reveal data-reveal-delay="120" href="mailto:contact@hiyahya.dev" style="display:inline-flex;align-items:center;gap:0.3em;font-family:'JetBrains Mono',monospace;font-size:clamp(22px,4.6vw,58px);font-weight:500;letter-spacing:-0.02em;color:var(--accent);text-decoration:none;will-change:transform;transition:opacity 0.25s ease" style-hover="opacity:0.82">contact@hiyahya.dev<span style="display:inline-block;width:0.42em;height:0.8em;background:var(--accent);animation:tm-blink 1.1s steps(1) infinite"></span></a>
+        <div data-reveal data-reveal-delay="160" style="display:flex;flex-wrap:wrap;gap:14px clamp(24px,4vw,48px);margin-top:clamp(40px,6vw,64px);font-family:'JetBrains Mono',monospace;font-size:14px">
+          <a href="https://hiyahya.dev" target="_blank" style="color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:3px;transition:color 0.25s ease,border-color 0.25s ease" style-hover="color:var(--accent);border-color:var(--accent)">hiyahya.dev →</a>
+          <a href="https://linkedin.com/in/yahya-fakhroji" target="_blank" style="color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:3px;transition:color 0.25s ease,border-color 0.25s ease" style-hover="color:var(--accent);border-color:var(--accent)">linkedin →</a>
+          <a href="https://github.com/yahyafakhroji" target="_blank" style="color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:3px;transition:color 0.25s ease,border-color 0.25s ease" style-hover="color:var(--accent);border-color:var(--accent)">github →</a>
+        </div>
+      </div>
+    </section>
+
+    <footer style="border-top:1px solid var(--line)">
+      <div style="max-width:1180px;margin:0 auto;padding:clamp(24px,3vw,36px) clamp(20px,5vw,64px);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)">
+        <span>© {{ year }} yahya fakhroji</span>
+        <span>senior software engineer · remote</span>
+      </div>
+    </footer>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:&quot;100%&quot;},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#C6F24E&quot;,&quot;options&quot;:[&quot;#C6F24E&quot;,&quot;#7CF2D8&quot;,&quot;#E9B872&quot;,&quot;#8AB4FF&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Theme&quot;},&quot;showGrain&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Theme&quot;},&quot;kineticIntro&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
+class Component extends DCLogic {
+  state = { cv: null };
+
+  componentDidMount() {
+    import('./cv-data.js').then((m) => {
+      this.setState({ cv: m.CV }, () => { this.applyTheme(); this.initMotion(); });
+    }).catch((e) => console.error('cv-data load failed', e));
+  }
+
+  componentWillUnmount() { this.teardown(); }
+
+  teardown() {
+    if (this._io) { this._io.disconnect(); this._io = null; }
+    (this._timers || []).forEach((t) => clearInterval(t));
+    this._timers = [];
+    if (this._scrInner) clearInterval(this._scrInner);
+    if (this._onMove) { window.removeEventListener('pointermove', this._onMove); this._onMove = null; }
+    if (this._onVis) { document.removeEventListener('visibilitychange', this._onVis); this._onVis = null; }
+  }
+
+  applyTheme() {
+    const root = this._root;
+    if (root && this.props.accent) root.style.setProperty('--accent', this.props.accent);
+  }
+
+  initMotion() {
+    const root = this._root;
+    if (!root) return;
+    this._timers = [];
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const intro = (this.props.kineticIntro ?? true) && !reduce;
+
+    if (!reduce) { this.startScramble(root); this.initMagnetic(root); this.initGlow(root); }
+    if (!intro) return;
+
+    if (document.visibilityState === 'visible') {
+      this.runEntrance(root);
+    } else {
+      this._onVis = () => {
+        if (document.visibilityState === 'visible') {
+          document.removeEventListener('visibilitychange', this._onVis);
+          this._onVis = null;
+          this.runEntrance(root);
+        }
+      };
+      document.addEventListener('visibilitychange', this._onVis);
+    }
+  }
+
+  runEntrance(root) {
+    const letters = [...root.querySelectorAll('[data-letter]')];
+    const fades = [...root.querySelectorAll('[data-fade]')];
+    letters.forEach((el) => { el.style.transition = 'none'; el.style.opacity = '0'; el.style.transform = 'translateY(110%)'; });
+    fades.forEach((el) => { el.style.transition = 'none'; el.style.opacity = '0'; el.style.transform = 'translateY(14px)'; });
+    void root.offsetWidth;
+    letters.forEach((el, i) => {
+      const d = 110 + i * 28;
+      el.style.transition = `transform 0.9s cubic-bezier(0.22,1,0.36,1) ${d}ms, opacity 0.8s ease ${d}ms`;
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    });
+    fades.forEach((el) => {
+      const d = parseFloat(el.getAttribute('data-delay') || '0');
+      el.style.transition = `opacity 0.7s ease ${d}ms, transform 0.8s cubic-bezier(0.22,1,0.36,1) ${d}ms`;
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    });
+
+    const reveals = [...root.querySelectorAll('[data-reveal]')];
+    reveals.forEach((el) => { el.style.transition = 'none'; el.style.opacity = '0'; el.style.transform = 'translateY(26px)'; });
+    void root.offsetWidth;
+    if (this._io) this._io.disconnect();
+    this._io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          const el = e.target;
+          const d = parseFloat(el.getAttribute('data-reveal-delay') || '0');
+          el.style.transition = `opacity 0.8s ease ${d}ms, transform 0.85s cubic-bezier(0.22,1,0.36,1) ${d}ms`;
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+          this._io.unobserve(el);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -7% 0px' });
+    reveals.forEach((el) => this._io.observe(el));
+  }
+
+  startScramble(root) {
+    const el = root.querySelector('[data-scramble]');
+    if (!el) return;
+    const words = (this.state.cv && this.state.cv.disciplines) || ['Web'];
+    const chars = 'ABCDEFGHKMNRSTXYZ#%&/<>*+=01';
+    let wi = 0;
+    const scrambleTo = (text) => {
+      const from = el.textContent || '';
+      const len = Math.max(from.length, text.length);
+      const queue = [];
+      for (let i = 0; i < len; i++) {
+        const start = Math.floor(Math.random() * 12);
+        const end = start + 8 + Math.floor(Math.random() * 12);
+        queue.push({ to: text[i] || '', start, end, ch: '' });
+      }
+      let frame = 0;
+      if (this._scrInner) clearInterval(this._scrInner);
+      this._scrInner = setInterval(() => {
+        let out = '', done = 0;
+        for (const q of queue) {
+          if (frame >= q.end) { done++; out += q.to; }
+          else if (frame >= q.start) {
+            if (!q.ch || Math.random() < 0.3) q.ch = chars[Math.floor(Math.random() * chars.length)];
+            out += '<span style="opacity:0.5">' + q.ch + '</span>';
+          }
+        }
+        el.innerHTML = out;
+        frame++;
+        if (done === queue.length) { el.textContent = text; clearInterval(this._scrInner); this._scrInner = null; }
+      }, 38);
+    };
+    this._timers.push(setInterval(() => { wi = (wi + 1) % words.length; scrambleTo(words[wi]); }, 2900));
+  }
+
+  initMagnetic(root) {
+    const items = [...root.querySelectorAll('[data-magnetic]')];
+    if (!items.length) return;
+    let raf = null;
+    this._onMagMove = (ev) => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = null;
+        items.forEach((el) => {
+          const r = el.getBoundingClientRect();
+          const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+          const dx = ev.clientX - cx, dy = ev.clientY - cy;
+          const dist = Math.hypot(dx, dy);
+          const radius = Math.max(r.width, 120);
+          if (dist < radius) {
+            const pull = 1 - dist / radius;
+            el.style.transform = `translate(${dx * 0.28 * pull}px, ${dy * 0.28 * pull}px)`;
+          } else {
+            el.style.transform = 'translate(0,0)';
+          }
+        });
+      });
+    };
+    window.addEventListener('pointermove', this._onMagMove, { passive: true });
+  }
+
+  initGlow(root) {
+    const glow = root.querySelector('[data-glow]');
+    if (!glow) return;
+    let raf = null, tx = window.innerWidth * 0.5, ty = window.innerHeight * 0.42, cx = tx, cy = ty;
+    const tick = () => {
+      cx += (tx - cx) * 0.12; cy += (ty - cy) * 0.12;
+      glow.style.transform = `translate(${cx}px, ${cy}px)`;
+      if (Math.abs(tx - cx) > 0.5 || Math.abs(ty - cy) > 0.5) { this._glowRaf = requestAnimationFrame(tick); }
+      else { this._glowRaf = null; }
+    };
+    this._onMove = (ev) => {
+      tx = ev.clientX; ty = ev.clientY;
+      if (!this._glowRaf) this._glowRaf = requestAnimationFrame(tick);
+    };
+    window.addEventListener('pointermove', this._onMove, { passive: true });
+    glow.style.transform = `translate(${tx}px, ${ty}px)`;
+  }
+
+  renderVals() {
+    const cv = this.state.cv;
+    const setRoot = (el) => { this._root = el; };
+    if (!cv) return { cv: { lead: '', profile: '', facts: [], skills: [], projectGroups: [], openSource: [] }, setRoot, showGrain: this.props.showGrain ?? true, nameWords: [], expList: [], year: new Date().getFullYear() };
+    const nameWords = cv.name.split(' ').map((w, wi) => ({
+      w, wi, letters: w.split('').map((c, ci) => ({ c, key: wi + '-' + ci })),
+    }));
+    const expList = cv.experience.map((e, i) => ({ ...e, no: String(i + 1).padStart(2, '0') }));
+    // lowercased fact keys for the terminal status panel
+    const facts = cv.facts.map((f) => ({ ...f, kl: f.k.toLowerCase() }));
+    return {
+      cv: { ...cv, facts }, setRoot, nameWords, expList,
+      showGrain: this.props.showGrain ?? true,
+      year: new Date().getFullYear(),
+    };
+  }
+}
+</script>
+</body>
+</html>
