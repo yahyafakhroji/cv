@@ -1,0 +1,42 @@
+---
+import { getEntry, getCollection } from 'astro:content';
+import { SITE } from '@/data/site';
+import { buildJsonLd } from '@/lib/seo';
+import { sortExperience } from '@/lib/content';
+
+interface Props { title: string; description: string; path?: string }
+const { title, description, path = '/' } = Astro.props;
+
+const canonical = new URL(path, SITE.url).href;
+const ogImage = new URL(SITE.ogImage, SITE.url).href;
+
+const profile = (await getEntry('profile', 'profile'))!.data;
+const skillsEntry = (await getEntry('skills', 'skills'))!.data;
+const skills = skillsEntry.rows.flatMap((r) => r.items.split(',').map((s) => s.trim()));
+const jobs = sortExperience(await getCollection('experience')).map((e) => ({ company: e.data.company, role: e.data.role }));
+
+const jsonLd = buildJsonLd({ profile, site: SITE, skills, jobs });
+---
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<meta name="theme-color" content={SITE.themeColor} />
+<meta name="author" content={profile.name} />
+
+<meta property="og:type" content="profile" />
+<meta property="og:site_name" content={SITE.name} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:locale" content={SITE.locale} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="sitemap" href="/sitemap-index.xml" />
+
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />

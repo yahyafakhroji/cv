@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hiyahya.dev/sitemap-index.xml
