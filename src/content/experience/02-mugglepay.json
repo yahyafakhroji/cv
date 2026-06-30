@@ -1,0 +1,12 @@
+{
+  "company": "MugglePay",
+  "role": "Full Stack Engineer",
+  "location": "Singapore · Remote",
+  "period": "Mar 2024 — Dec 2024",
+  "year": "2024",
+  "summary": "Crypto payment gateway — digital-asset payment flows across web services and merchant portals.",
+  "bullets": [
+    "Developed full-stack features for a crypto payment gateway, integrating digital-asset payment flows across web services and merchant portals.",
+    "Designed and consumed APIs spanning frontend and backend, focused on reliability and a smooth checkout experience for merchants."
+  ]
+}

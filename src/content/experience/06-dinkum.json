@@ -1,0 +1,12 @@
+{
+  "company": "Dinkum Interactive",
+  "role": "Web Developer",
+  "location": "US · Remote",
+  "period": "Jul 2016 — Mar 2018",
+  "year": "2016",
+  "summary": "Custom WordPress/WooCommerce plugins and full-stack apps with Phalcon and MithrilJS.",
+  "bullets": [
+    "Developed custom WordPress and WooCommerce plugins with third-party API integrations for international clients.",
+    "Built full-stack applications with Phalcon (PHP) and MithrilJS, including Copilot (analytics monitoring) and MuseCRM (SaaS ticketing)."
+  ]
+}

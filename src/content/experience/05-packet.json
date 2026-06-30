@@ -1,0 +1,12 @@
+{
+  "company": "Packet Host",
+  "role": "Front End Developer",
+  "location": "US · Remote — acquired by Equinix",
+  "period": "Mar 2018 — Mar 2020",
+  "year": "2018",
+  "summary": "Migrated legacy AngularJS portals to Angular 2+ for bare-metal cloud infrastructure customers.",
+  "bullets": [
+    "Migrated legacy AngularJS portals to Angular 2+, significantly improving performance and maintainability.",
+    "Contributed to both Staff and Customer portals across React, Angular and Laravel for bare-metal cloud customers."
+  ]
+}

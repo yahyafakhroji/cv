@@ -1,0 +1,13 @@
+{
+  "company": "Futr Asia",
+  "role": "Full Stack Developer & Project Leader",
+  "location": "Malang, Indonesia",
+  "period": "Sep 2022 — Feb 2024",
+  "year": "2022",
+  "summary": "Led the Lini commerce ecosystem — five apps powering digital transformation for Indonesian SMEs.",
+  "bullets": [
+    "Led the Lini commerce ecosystem (Courier, Seller, Store, Mitra and Nala apps) from concept to production, powering digital transformation for Indonesian SMEs/UMKM.",
+    "Shipped offline-first PWAs deployed as native Android apps via Capacitor, using React, Angular and real-time GraphQL.",
+    "Mentored team members, coordinated cross-app workflows, and owned system architecture and integrations."
+  ]
+}

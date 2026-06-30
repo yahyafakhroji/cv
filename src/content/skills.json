@@ -1,0 +1,13 @@
+{
+  "skills": {
+    "rows": [
+      { "label": "Languages & Web", "items": "TypeScript, JavaScript, React, Next.js, React Router v7, Angular, Vue, Nuxt, Svelte" },
+      { "label": "Mobile & Desktop", "items": "React Native, Expo, Capacitor, Ionic, Electron, PWA" },
+      { "label": "Backend & Data", "items": "Node.js, NestJS, Hono, AdonisJS, Python, FastAPI, PHP, Laravel, GraphQL, REST, PostgreSQL, MySQL, Supabase" },
+      { "label": "Web3 & Blockchain", "items": "Stellar, Soroban, Smart wallets, PasskeyKit, WalletConnect" },
+      { "label": "UI & Design Systems", "items": "Tailwind CSS, Chakra UI, Ant Design, Angular Material, shadcn/ui, Figma-to-token workflows" },
+      { "label": "DevOps & Cloud", "items": "Docker, Kubernetes, CI/CD, Cloudflare Workers, Git, Vite, Bun" },
+      { "label": "Practices", "items": "Agile/Scrum, Code review, Performance optimization, Technical leadership, Mentoring" }
+    ]
+  }
+}

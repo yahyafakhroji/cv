@@ -1,0 +1,23 @@
+{
+  "profile": {
+    "name": "Yahya Fakhroji",
+    "role": "Senior Software Engineer",
+    "disciplines": ["Web", "Mobile", "Desktop", "Backend"],
+    "location": "Malang, East Java, Indonesia",
+    "email": "contact@hiyahya.dev",
+    "available": true,
+    "lead": "I design and ship production-grade software across web, mobile, desktop, and backend — end to end.",
+    "profile": "Software engineer with over a decade of experience working across the full product lifecycle: architecting systems, building polished interfaces, implementing services and APIs, and deploying to cloud and edge infrastructure. I've modernized enterprise portals for global cloud providers, led multi-app commerce ecosystems for emerging markets, and built crypto payment and wallet products. I care about clean architecture, developer experience, and reliable, user-centric software — and I'm comfortable mentoring teams and owning initiatives end to end.",
+    "facts": [
+      { "k": "Experience", "v": "10+ years" },
+      { "k": "Base", "v": "Malang, Indonesia" },
+      { "k": "Mode", "v": "Remote-first" },
+      { "k": "Focus", "v": "Frontend · Full-stack" }
+    ],
+    "links": {
+      "site": { "label": "hiyahya.dev", "href": "https://hiyahya.dev" },
+      "github": { "label": "github.com/yahyafakhroji", "href": "https://github.com/yahyafakhroji" },
+      "linkedin": { "label": "linkedin.com/in/yahya-fakhroji", "href": "https://linkedin.com/in/yahya-fakhroji" }
+    }
+  }
+}

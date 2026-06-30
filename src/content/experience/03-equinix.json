@@ -1,0 +1,13 @@
+{
+  "company": "Equinix Metal",
+  "role": "Consultant Product Developer",
+  "location": "New York, US · Remote",
+  "period": "Mar 2020 — Aug 2024",
+  "year": "2020",
+  "summary": "Digital layer for one of the world's largest bare-metal cloud providers, serving thousands of enterprise users.",
+  "bullets": [
+    "Engineered the digital layer for one of the world's largest bare-metal cloud providers, serving thousands of enterprise users.",
+    "Built and maintained the Staff Portal (Angular, Angular Material) and Customer Portal (Next.js, React), shipping enhancements with cross-functional teams.",
+    "Ensured high availability and seamless experiences for infrastructure customers through clean-code practices, code reviews and performance optimization."
+  ]
+}
