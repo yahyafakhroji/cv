@@ -1,0 +1,11 @@
+---
+import { getEntry } from 'astro:content';
+const { data: p } = (await getEntry('profile', 'profile'))!;
+const year = new Date().getFullYear();
+---
+<footer class="border-t border-line">
+  <div class="max-w-[1200px] mx-auto px-[clamp(20px,5vw,64px)] py-[clamp(24px,3vw,36px)] flex flex-wrap justify-between gap-[10px] text-[12px] font-medium text-muted">
+    <span>© {year} {p.name}</span>
+    <span>{p.role} · Remote-first</span>
+  </div>
+</footer>

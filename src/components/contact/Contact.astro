@@ -1,0 +1,17 @@
+---
+import { getEntry } from 'astro:content';
+import SectionHeader from '@/components/layout/SectionHeader.astro';
+const { data: p } = (await getEntry('profile', 'profile'))!;
+---
+<section id="contact" aria-labelledby="contact-h" class="pt-[clamp(80px,12vw,170px)] pb-[clamp(60px,8vw,100px)] border-t border-line">
+  <div class="max-w-[1200px] mx-auto px-[clamp(20px,5vw,64px)]">
+    <SectionHeader no="05" label="Contact" />
+    <h2 id="contact-h" data-reveal class="m-0 font-display text-[clamp(38px,7vw,98px)] font-extrabold tracking-[-0.04em] leading-[0.98] max-w-[13ch]">Let's make something <span class="text-accent">lasting</span>.</h2>
+    <p data-reveal data-reveal-delay="80" class="my-[clamp(22px,3vw,32px)] text-[clamp(17px,2vw,22px)] text-muted max-w-[560px] leading-[1.5]">Open to senior frontend & full-stack roles and contracts — remote, worldwide. I usually reply within a day.</p>
+    <a data-magnetic data-reveal data-reveal-delay="120" href={`mailto:${p.email}`} class="inline-block font-display text-[clamp(28px,5.5vw,74px)] font-bold tracking-[-0.035em] text-ink no-underline border-b-2 border-line pb-[6px] will-change-transform transition-colors duration-300 hover:text-accent hover:border-accent">{p.email}</a>
+    <div data-reveal data-reveal-delay="160" class="flex flex-wrap gap-x-[clamp(24px,4vw,48px)] gap-y-[14px] mt-[clamp(40px,6vw,64px)] text-[14px] font-semibold">
+      <a href={p.links.linkedin.href} target="_blank" rel="noopener" class="text-ink no-underline border-b border-line pb-[3px] transition-colors duration-200 hover:text-accent hover:border-accent">{p.links.linkedin.label}&nbsp;↗</a>
+      <a href={p.links.github.href} target="_blank" rel="noopener" class="text-ink no-underline border-b border-line pb-[3px] transition-colors duration-200 hover:text-accent hover:border-accent">{p.links.github.label}&nbsp;↗</a>
+    </div>
+  </div>
+</section>
