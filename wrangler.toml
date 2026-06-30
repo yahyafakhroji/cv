@@ -1,4 +1,4 @@
-name = "hiyahya-cv"
+name = "cv"
 compatibility_date = "2026-06-01"
 
 # Static-only Worker: Cloudflare serves the built site from its edge.

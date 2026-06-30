@@ -22,7 +22,7 @@ export function initNavScrollSpy(root: ParentNode = document): void {
   };
 
   const compute = () => {
-    const line = 80; // detection line just below the fixed nav
+    const line = 110; // below scroll-padding-top (84px) so anchored sections register
     let activeId: string | null = null;
     for (const s of sections) {
       if (s.getBoundingClientRect().top - line <= 0) activeId = s.id; else break;
