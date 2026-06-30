@@ -31,3 +31,17 @@ body { color: var(--color-ink); font-family: var(--font-body); -webkit-font-smoo
 
 html { scroll-behavior: smooth; scroll-padding-top: 84px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Active nav link indicator (scroll-spy sets aria-current) */
+nav a[data-navlink] { position: relative; }
+nav a[data-navlink][aria-current="true"] { color: var(--color-accent); }
+nav a[data-navlink]::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px;
+  background: var(--color-accent); border-radius: 2px;
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.25s var(--ease-out-expo);
+}
+nav a[data-navlink][aria-current="true"]::after { transform: scaleX(1); }
+@media (prefers-reduced-motion: reduce) {
+  nav a[data-navlink]::after { transition: none; }
+}

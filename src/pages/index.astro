@@ -33,12 +33,14 @@ const { data: p } = (await getEntry('profile', 'profile'))!;
   import { initReveal } from '@/scripts/reveal';
   import { initScramble } from '@/scripts/scramble';
   import { initHeroEntrance } from '@/scripts/heroEntrance';
+  import { initNavScrollSpy } from '@/scripts/navScrollSpy';
 
   const root = document.querySelector<HTMLElement>('[data-root]');
   if (root) initSpotlight(root);
   initMagnetic(document);
   initReveal(document);
   initHeroEntrance(document);
+  initNavScrollSpy(document);
 
   const scr = document.querySelector<HTMLElement>('[data-scramble]');
   const discEl = document.querySelector<HTMLElement>('[data-disciplines]');

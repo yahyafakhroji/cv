@@ -14,7 +14,7 @@ const links = [
     </a>
     <div class="hidden md:flex items-center gap-x-7 text-[13px] font-semibold text-muted">
       {links.map((l) => (
-        <a href={l.href} class="no-underline transition-colors hover:text-accent">{l.label}</a>
+        <a href={l.href} data-navlink class="no-underline transition-colors hover:text-accent">{l.label}</a>
       ))}
     </div>
     <a href="/Yahya_Fakhroji_CV.pdf" download class="inline-flex items-center gap-1.5 text-[13px] font-semibold text-paper bg-ink rounded-full px-4 py-2 no-underline transition-colors hover:bg-accent">Download CV</a>
