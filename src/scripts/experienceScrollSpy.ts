@@ -1,6 +1,13 @@
 export function initExperienceScrollSpy(root: ParentNode): void {
   const cards = [...root.querySelectorAll<HTMLElement>('[data-jobcard]')];
   if (!cards.length) return;
+  const mm = (q: string) => window.matchMedia(q).matches;
+  const reduce = mm('(prefers-reduced-motion: reduce)');
+  // Back off the de-emphasis dim for users who asked for more contrast / less
+  // transparency, so the effect never makes text unreadable for them.
+  const highContrast = mm('(prefers-contrast: more)') || mm('(prefers-reduced-transparency: reduce)');
+  const dim = !reduce && !highContrast;
+
   const panel = root.querySelector<HTMLElement>('[data-panel]');
   const bar = root.querySelector<HTMLElement>('[data-bar]');
   const f = {
@@ -18,6 +25,8 @@ export function initExperienceScrollSpy(root: ParentNode): void {
   let rzT = 0;
   window.addEventListener('resize', () => { clearTimeout(rzT); rzT = window.setTimeout(applyMode, 150); }, { passive: true });
 
+  if (dim) cards.forEach((c) => { c.style.transition = 'opacity 0.45s ease'; });
+
   let last = -1;
   const setActive = (i: number) => {
     if (i === last) return;
@@ -29,6 +38,7 @@ export function initExperienceScrollSpy(root: ParentNode): void {
     if (f.summary) f.summary.textContent = c.dataset.summary || '';
     if (f.label) f.label.textContent = `${pad2(i + 1)} / ${pad2(total)}`;
     if (bar) bar.style.width = `${((i + 1) / total) * 100}%`;
+    if (dim) cards.forEach((card, j) => { card.style.opacity = j === i ? '1' : '0.32'; });
   };
 
   const compute = () => {
