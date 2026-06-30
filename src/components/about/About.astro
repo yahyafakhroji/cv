@@ -1,0 +1,22 @@
+---
+import { getEntry } from 'astro:content';
+import SectionHeader from '@/components/layout/SectionHeader.astro';
+const { data: p } = (await getEntry('profile', 'profile'))!;
+---
+<section aria-labelledby="about-h" class="py-[clamp(64px,9vw,130px)]">
+  <div class="max-w-[1200px] mx-auto px-[clamp(20px,5vw,64px)]">
+    <SectionHeader no="01" label="Profile" />
+    <h2 id="about-h" class="sr-only">Profile</h2>
+    <div class="flex flex-wrap gap-[clamp(28px,5vw,72px)]">
+      <p data-reveal class="flex-[3_1_460px] m-0 font-display text-[clamp(21px,2.6vw,33px)] leading-[1.4] tracking-[-0.02em] font-medium text-pretty">{p.profile}</p>
+      <div data-reveal data-reveal-delay="120" class="flex-[1_1_220px] flex flex-col">
+        {p.facts.map((f) => (
+          <div class="flex justify-between gap-3 py-[14px] border-t border-line text-[14px]">
+            <span class="text-muted">{f.k}</span>
+            <span class="text-ink font-semibold text-right">{f.v}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

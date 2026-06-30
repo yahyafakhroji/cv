@@ -1,0 +1,17 @@
+---
+import { getEntry } from 'astro:content';
+import SectionHeader from '@/components/layout/SectionHeader.astro';
+const { data: s } = (await getEntry('skills', 'skills'))!;
+---
+<section aria-labelledby="skills-h" class="py-[clamp(48px,7vw,100px)]">
+  <div class="max-w-[1200px] mx-auto px-[clamp(20px,5vw,64px)]">
+    <SectionHeader no="02" label="Capabilities" />
+    <h2 id="skills-h" class="sr-only">Capabilities</h2>
+    {s.rows.map((row) => (
+      <div data-reveal class="flex flex-wrap gap-x-[clamp(24px,4vw,56px)] gap-y-2 py-[clamp(16px,2vw,22px)] border-t border-line">
+        <div class="flex-[1_1_220px] min-w-[160px] font-display text-[clamp(17px,1.8vw,22px)] font-semibold tracking-[-0.01em]">{row.label}</div>
+        <div class="flex-[3_1_480px] text-[clamp(15px,1.5vw,18px)] leading-[1.55] text-muted">{row.items}</div>
+      </div>
+    ))}
+  </div>
+</section>

@@ -2,12 +2,16 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getEntry } from 'astro:content';
 import Hero from '@/components/hero/Hero.astro';
+import About from '@/components/about/About.astro';
+import Skills from '@/components/skills/Skills.astro';
 const { data: p } = (await getEntry('profile', 'profile'))!;
 ---
 <BaseLayout>
   <script type="application/json" data-disciplines set:html={JSON.stringify(p.disciplines)} is:inline></script>
   <main>
     <Hero />
+    <About />
+    <Skills />
   </main>
 </BaseLayout>
 
