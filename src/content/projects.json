@@ -4,30 +4,30 @@
       {
         "label": "Commerce & Logistics",
         "items": [
-          { "name": "Lini Ecosystem", "period": "2022 — 2024", "desc": "Five-app commerce platform (Courier, Mitra, Seller, Store, Nala) for Indonesian SMEs, shipped to web and native Android.", "stack": "React · Angular · GraphQL · Capacitor" },
+          { "name": "Lini Ecosystem", "period": "2022 — 2024", "desc": "Five-app commerce platform (Courier, Mitra, Seller, Store, Nala) for Indonesian SMEs, shipped to web and native Android.", "stack": "React · Angular · Vite · GraphQL · Chakra UI · Ant Design · Capacitor · PWA" },
           { "name": "Keeppack", "period": "2019 — 2022", "desc": "Co-warehousing and e-commerce fulfillment system for online sellers, spanning customer and staff apps.", "stack": "Nuxt.js · Ant Design" },
-          { "name": "Kelola WMS", "period": "2021 — 2022", "desc": "Marketplace-integrated warehouse management connecting order fulfillment with major marketplaces.", "stack": "Angular · Tailwind CSS" }
+          { "name": "Kelola WMS", "period": "2021 — 2022", "desc": "Marketplace-integrated warehouse management connecting order fulfillment with major marketplaces.", "stack": "Angular · Angular Material · Tailwind CSS" }
         ]
       },
       {
         "label": "Fintech, Payments & Crypto",
         "items": [
-          { "name": "Rozo Wallet", "period": "Recent", "desc": "Cross-platform crypto wallet with Stellar smart wallets, passkey auth (PasskeyKit) and deep-link payment callbacks.", "stack": "React Native · Expo · Stellar" },
-          { "name": "Moinves", "period": "2018 — 2020", "desc": "Mutual-fund investment platform and API for PT Mandiri Manajemen Investasi, broadening retail investment access.", "stack": "PHP · PrestaShop" }
+          { "name": "Rozo Wallet", "period": "Recent", "desc": "Cross-platform crypto wallet with Stellar smart wallets, passkey auth (PasskeyKit), deep-link payment callbacks and an EAS iOS build pipeline.", "stack": "React Native · Expo · Stellar · PasskeyKit" },
+          { "name": "Moinves", "period": "2018 — 2020", "desc": "Mutual-fund investment platform and API for PT Mandiri Manajemen Investasi, broadening retail investment access.", "stack": "PHP · PrestaShop · Bootstrap" }
         ]
       },
       {
         "label": "Hospitality & Point of Sale",
         "items": [
-          { "name": "Bonbon Merchant", "period": "2020 — 2021", "desc": "Feature-rich point-of-sale system powering restaurant operations.", "stack": "Angular · PWA" },
-          { "name": "Bonbon Customer", "period": "2019 — 2020", "desc": "Digital dining app with table booking, ordering, split bills and payments.", "stack": "Nuxt.js · Framework7" }
+          { "name": "Bonbon Merchant", "period": "2020 — 2021", "desc": "Feature-rich point-of-sale system powering restaurant operations.", "stack": "Angular · Bootstrap · PWA" },
+          { "name": "Bonbon Customer", "period": "2019 — 2020", "desc": "Digital dining app with table booking, ordering, split bills and payments.", "stack": "Nuxt.js · Framework7 · PWA" }
         ]
       },
       {
         "label": "Workforce & Field Operations",
         "items": [
-          { "name": "Rosty", "period": "2021 — 2022", "desc": "End-to-end workforce management and automation platform with client and admin apps.", "stack": "Angular · Tailwind CSS" },
-          { "name": "Site Survey Mobile", "period": "2017", "desc": "Geolocation-based field survey app powering cloud project management.", "stack": "Angular · Ionic" }
+          { "name": "Rosty", "period": "2021 — 2022", "desc": "End-to-end workforce management and automation platform with client and admin apps.", "stack": "Angular · Angular Material · Tailwind CSS" },
+          { "name": "Site Survey Mobile", "period": "2017", "desc": "Geolocation-based field survey app powering cloud project management.", "stack": "Angular · Ionic · WordPress" }
         ]
       },
       {

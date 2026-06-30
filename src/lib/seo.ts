@@ -8,9 +8,11 @@ interface JsonLdArgs {
   site: typeof SITE;
   skills: string[];
   jobs: { company: string; role: string }[];
+  education: { school: string }[];
+  languages: { name: string }[];
 }
 
-export function buildJsonLd({ profile, site, skills, jobs }: JsonLdArgs): object {
+export function buildJsonLd({ profile, site, skills, jobs, education, languages }: JsonLdArgs): object {
   const personId = `${site.url}/#person`;
   return {
     '@context': 'https://schema.org',
@@ -26,6 +28,10 @@ export function buildJsonLd({ profile, site, skills, jobs }: JsonLdArgs): object
         address: { '@type': 'PostalAddress', addressLocality: profile.location },
         sameAs: [profile.links.github.href, profile.links.linkedin.href],
         knowsAbout: skills,
+        knowsLanguage: languages.map((l) => l.name),
+        alumniOf: education[0]
+          ? { '@type': 'CollegeOrUniversity', name: education[0].school }
+          : undefined,
         worksFor: jobs[0] ? { '@type': 'Organization', name: jobs[0].company } : undefined,
       },
       {

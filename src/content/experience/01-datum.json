@@ -10,6 +10,7 @@
     "Build and maintain Datum Cloud's customer and staff portals using React, React Router v7, TypeScript, Hono and Bun, deployed on Kubernetes.",
     "Drive migration of legacy UI packages into a unified component library, standardizing the design system and accelerating delivery across teams.",
     "Lead a V3 frontend architecture initiative migrating the BFF layer from Express to Hono with React Query for performant, type-safe data flows.",
-    "Implement permission-aware UI on the platform's RBAC module and contribute to security incident response, including remediation tooling and timeline reporting."
+    "Implement permission-aware UI on the platform's RBAC module and contribute to security incident response, including remediation tooling and timeline reporting.",
+    "Deliver features spanning a Quotas page redesign, DNS record management (BIND zone parsing with Zod validation and Kubernetes CRD integration), and a background task queue with real-time SSE progress updates."
   ]
 }

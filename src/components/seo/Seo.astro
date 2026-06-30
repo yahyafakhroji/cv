@@ -14,8 +14,10 @@ const profile = (await getEntry('profile', 'profile'))!.data;
 const skillsEntry = (await getEntry('skills', 'skills'))!.data;
 const skills = skillsEntry.rows.flatMap((r) => r.items.split(',').map((s) => s.trim()));
 const jobs = sortExperience(await getCollection('experience')).map((e) => ({ company: e.data.company, role: e.data.role }));
+const education = (await getEntry('education', 'education'))!.data.items;
+const languages = (await getEntry('languages', 'languages'))!.data.items;
 
-const jsonLd = buildJsonLd({ profile, site: SITE, skills, jobs });
+const jsonLd = buildJsonLd({ profile, site: SITE, skills, jobs, education, languages });
 ---
 <title>{title}</title>
 <meta name="description" content={description} />

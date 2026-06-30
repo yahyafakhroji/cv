@@ -1,23 +1,27 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getEntry } from 'astro:content';
+import Nav from '@/components/nav/Nav.astro';
 import Hero from '@/components/hero/Hero.astro';
 import About from '@/components/about/About.astro';
 import Skills from '@/components/skills/Skills.astro';
 import Experience from '@/components/experience/Experience.astro';
 import Projects from '@/components/projects/Projects.astro';
+import Credentials from '@/components/credentials/Credentials.astro';
 import Contact from '@/components/contact/Contact.astro';
 import Footer from '@/components/layout/Footer.astro';
 const { data: p } = (await getEntry('profile', 'profile'))!;
 ---
 <BaseLayout>
   <script type="application/json" data-disciplines set:html={JSON.stringify(p.disciplines)} is:inline></script>
+  <Nav />
   <main>
     <Hero />
     <About />
     <Skills />
     <Experience />
     <Projects />
+    <Credentials />
     <Contact />
   </main>
   <Footer />

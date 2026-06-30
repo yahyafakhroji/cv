@@ -3,7 +3,7 @@ import { getEntry } from 'astro:content';
 import SectionHeader from '@/components/layout/SectionHeader.astro';
 const { data: pr } = (await getEntry('projects', 'projects'))!;
 ---
-<section aria-labelledby="proj-h" class="py-[clamp(56px,8vw,120px)]">
+<section id="projects" aria-labelledby="proj-h" class="py-[clamp(56px,8vw,120px)]">
   <div class="max-w-[1200px] mx-auto px-[clamp(20px,5vw,64px)]">
     <SectionHeader no="04" label="Projects" />
     <h2 id="proj-h" class="sr-only">Projects</h2>
@@ -13,13 +13,17 @@ const { data: pr } = (await getEntry('projects', 'projects'))!;
           <div class="text-[12px] font-bold tracking-[0.06em] uppercase text-accent mb-[18px]">{grp.label}</div>
           <div class="grid gap-[clamp(14px,1.6vw,22px)]" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
             {grp.items.map((p) => (
-              <div class="flex flex-col gap-[10px] p-[clamp(20px,2.2vw,26px)] bg-[#FBFBF9] border border-line rounded-[14px] transition duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-[0_16px_36px_-22px_rgba(43,67,199,0.5)]">
+              <div class="flex flex-col gap-[12px] p-[clamp(20px,2.2vw,26px)] bg-[#FBFBF9] border border-line rounded-[14px] transition duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-[0_16px_36px_-22px_rgba(43,67,199,0.5)]">
                 <div class="flex justify-between items-baseline gap-3">
                   <h3 class="m-0 font-display text-[clamp(19px,2vw,24px)] font-bold tracking-[-0.02em]">{p.name}</h3>
                   <span class="text-[12px] font-semibold text-muted whitespace-nowrap">{p.period}</span>
                 </div>
                 <p class="m-0 text-[14.5px] leading-[1.5] text-muted flex-1 text-pretty">{p.desc}</p>
-                <div class="text-[12px] font-semibold text-accent pt-1">{p.stack}</div>
+                <ul class="flex flex-wrap gap-1.5 m-0 p-0 list-none pt-1">
+                  {p.stack.split('·').map((t) => (
+                    <li class="inline-block text-[11.5px] font-semibold text-accent border border-accent/25 rounded-full px-[9px] py-[3px]">{t.trim()}</li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>

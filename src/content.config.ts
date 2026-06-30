@@ -51,4 +51,20 @@ const experience = defineCollection({
   }),
 });
 
-export const collections = { profile, skills, projects, experience };
+const education = defineCollection({
+  loader: file('src/content/education.json'),
+  schema: z.object({
+    items: z.array(z.object({
+      school: z.string(), degree: z.string(), detail: z.string(), period: z.string(),
+    })),
+  }),
+});
+
+const languages = defineCollection({
+  loader: file('src/content/languages.json'),
+  schema: z.object({
+    items: z.array(z.object({ name: z.string(), level: z.string() })),
+  }),
+});
+
+export const collections = { profile, skills, projects, experience, education, languages };

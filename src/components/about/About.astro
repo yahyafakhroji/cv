@@ -3,7 +3,7 @@ import { getEntry } from 'astro:content';
 import SectionHeader from '@/components/layout/SectionHeader.astro';
 const { data: p } = (await getEntry('profile', 'profile'))!;
 ---
-<section aria-labelledby="about-h" class="py-[clamp(64px,9vw,130px)]">
+<section id="profile" aria-labelledby="about-h" class="py-[clamp(64px,9vw,130px)]">
   <div class="max-w-[1200px] mx-auto px-[clamp(20px,5vw,64px)]">
     <SectionHeader no="01" label="Profile" />
     <h2 id="about-h" class="sr-only">Profile</h2>
