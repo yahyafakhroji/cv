@@ -8,7 +8,6 @@ export function initExperienceScrollSpy(root: ParentNode): void {
   const highContrast = mm('(prefers-contrast: more)') || mm('(prefers-reduced-transparency: reduce)');
   const dim = !reduce && !highContrast;
 
-  const panel = root.querySelector<HTMLElement>('[data-panel]');
   const bar = root.querySelector<HTMLElement>('[data-bar]');
   const f = {
     year: root.querySelector<HTMLElement>('[data-active-year]'),
@@ -19,11 +18,6 @@ export function initExperienceScrollSpy(root: ParentNode): void {
   };
   const total = cards.length;
   const pad2 = (n: number) => String(n).padStart(2, '0');
-
-  const applyMode = () => { if (panel) panel.style.position = window.innerWidth >= 860 ? 'sticky' : 'static'; };
-  applyMode();
-  let rzT = 0;
-  window.addEventListener('resize', () => { clearTimeout(rzT); rzT = window.setTimeout(applyMode, 150); }, { passive: true });
 
   if (dim) cards.forEach((c) => { c.style.transition = 'opacity 0.45s ease'; });
 
@@ -42,7 +36,11 @@ export function initExperienceScrollSpy(root: ParentNode): void {
   };
 
   const compute = () => {
-    const pinnedTop = Math.max(56, Math.min(window.innerHeight * 0.1, 112));
+    // Reading line tracks the sticky panel's pinned offset (smaller on mobile,
+    // where the panel pins just under the fixed nav).
+    const pinnedTop = window.innerWidth >= 768
+      ? Math.max(56, Math.min(window.innerHeight * 0.1, 112))
+      : 60;
     const anchor = pinnedTop + 84;
     let idx = 0;
     for (let i = 0; i < cards.length; i++) {
@@ -56,5 +54,6 @@ export function initExperienceScrollSpy(root: ParentNode): void {
     if (raf) return;
     raf = requestAnimationFrame(() => { raf = 0; compute(); });
   }, { passive: true });
+  window.addEventListener('resize', () => { compute(); }, { passive: true });
   compute();
 }

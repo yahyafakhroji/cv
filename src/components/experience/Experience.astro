@@ -12,19 +12,21 @@ const pad2 = (n: number) => String(n).padStart(2, '0');
     <SectionHeader no="03" label="Experience" />
     <h2 id="exp-h" class="sr-only">Experience</h2>
     <div class="flex flex-wrap gap-[clamp(24px,4vw,64px)] items-start">
-      <div data-panel class="flex-[1_1_300px] min-w-[260px] self-start top-[clamp(56px,10vh,112px)]">
+      <div data-panel class="z-30 self-start flex-[1_1_300px] min-w-[260px] sticky top-[60px] md:top-[clamp(56px,10vh,112px)] max-md:bg-paper/92 max-md:backdrop-blur-sm max-md:border-b max-md:border-line max-md:py-3">
         <div data-progress-label class="text-[12px] font-bold tracking-[0.14em] text-accent">{pad2(1)} / {pad2(total)}</div>
-        <div data-active-year class="font-display text-[clamp(72px,11vw,128px)] font-extrabold leading-[0.92] tracking-[-0.04em] mt-[10px] mb-[8px]">{first.year}</div>
-        <div data-active-company class="font-display text-[clamp(24px,2.6vw,32px)] font-bold tracking-[-0.02em]">{first.company}</div>
-        <div data-active-role class="text-[clamp(15px,1.6vw,18px)] font-semibold text-accent mt-[2px]">{first.role}</div>
-        <p data-active-summary class="mt-4 mb-0 text-[clamp(15px,1.5vw,17px)] leading-[1.55] text-muted max-w-[380px] text-pretty">{first.summary}</p>
-        <div class="mt-[26px] h-[3px] w-full bg-line rounded-[3px] overflow-hidden">
+        <div class="flex items-baseline gap-x-3 flex-wrap md:block">
+          <div data-active-year class="font-display text-[40px] md:text-[clamp(72px,11vw,128px)] font-extrabold leading-[0.92] tracking-[-0.04em] md:mt-[10px] md:mb-[8px]">{first.year}</div>
+          <div data-active-company class="font-display text-[clamp(20px,2.6vw,32px)] font-bold tracking-[-0.02em]">{first.company}</div>
+        </div>
+        <div data-active-role class="text-[clamp(14px,1.6vw,18px)] font-semibold text-accent mt-[2px]">{first.role}</div>
+        <p data-active-summary class="max-md:hidden mt-4 mb-0 text-[clamp(15px,1.5vw,17px)] leading-[1.55] text-muted max-w-[380px] text-pretty">{first.summary}</p>
+        <div class="mt-3 md:mt-[26px] h-[3px] w-full bg-line rounded-[3px] overflow-hidden">
           <span data-bar class="block h-full bg-accent rounded-[3px] transition-[width] duration-500" style="width:14%"></span>
         </div>
       </div>
       <div class="flex-[1.6_1_420px] flex flex-col gap-[clamp(40px,6vw,80px)] pb-[clamp(0px,7vh,96px)]">
         {jobs.map((job) => (
-          <article data-jobcard data-year={job.year} data-company={job.company} data-role={job.role} data-summary={job.summary} class="scroll-mt-[90px]">
+          <article data-jobcard data-year={job.year} data-company={job.company} data-role={job.role} data-summary={job.summary} class="scroll-mt-[150px] md:scroll-mt-[90px]">
             <div class="flex flex-wrap items-baseline gap-x-[14px] gap-y-2 mb-1">
               <h3 class="m-0 font-display text-[clamp(26px,3.2vw,42px)] font-bold tracking-[-0.03em]">{job.company}</h3>
               {job.current && <span class="text-[11px] font-bold tracking-[0.04em] text-accent border border-accent rounded-full px-[10px] py-[3px]">NOW</span>}
