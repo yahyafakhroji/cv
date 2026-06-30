@@ -1,18 +1,31 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { getCollection, getEntry } from 'astro:content';
-import { sortExperience } from '@/lib/content';
-const exp = sortExperience(await getCollection('experience'));
-const profile = await getEntry('profile', 'profile');
-const skills = await getEntry('skills', 'skills');
-const projects = await getEntry('projects', 'projects');
+import { getEntry } from 'astro:content';
+import Hero from '@/components/hero/Hero.astro';
+const { data: p } = (await getEntry('profile', 'profile'))!;
 ---
 <BaseLayout>
-  <main style="padding:4rem">
-    <p>name: {profile?.data.name}</p>
-    <p>jobs: {exp.length}</p>
-    <p>first: {exp[0]?.id}</p>
-    <p>skills: {skills?.data.rows.length}</p>
-    <p>groups: {projects?.data.groups.length}</p>
+  <script type="application/json" data-disciplines set:html={JSON.stringify(p.disciplines)} is:inline></script>
+  <main>
+    <Hero />
   </main>
 </BaseLayout>
+
+<script>
+  import { initSpotlight } from '@/scripts/spotlight';
+  import { initMagnetic } from '@/scripts/magnetic';
+  import { initReveal } from '@/scripts/reveal';
+  import { initScramble } from '@/scripts/scramble';
+  import { initHeroEntrance } from '@/scripts/heroEntrance';
+
+  const root = document.querySelector<HTMLElement>('[data-root]');
+  if (root) initSpotlight(root);
+  initMagnetic(document);
+  initReveal(document);
+  initHeroEntrance(document);
+
+  const scr = document.querySelector<HTMLElement>('[data-scramble]');
+  const discEl = document.querySelector<HTMLElement>('[data-disciplines]');
+  const disc: string[] = discEl ? JSON.parse(discEl.textContent || '[]') : [];
+  if (scr && disc.length) initScramble(scr, disc);
+</script>

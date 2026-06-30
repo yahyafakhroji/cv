@@ -1,0 +1,9 @@
+---
+interface Props { no: string; label: string }
+const { no, label } = Astro.props;
+---
+<div data-reveal class="flex items-baseline gap-[14px] mb-[clamp(20px,3vw,40px)]">
+  <span class="text-[12px] font-bold tracking-[0.1em] text-accent">{no}</span>
+  <span class="text-[12px] font-semibold tracking-[0.18em] uppercase text-muted">{label}</span>
+  <span class="flex-1 h-px bg-line"></span>
+</div>

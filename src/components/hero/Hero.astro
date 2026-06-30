@@ -1,0 +1,30 @@
+---
+import { getEntry } from 'astro:content';
+const { data: p } = (await getEntry('profile', 'profile'))!;
+const words = p.name.split(' ').map((w) => w.split(''));
+---
+<header class="min-h-screen flex flex-col justify-center items-center text-center max-w-[1100px] mx-auto px-[clamp(20px,5vw,64px)] py-[clamp(48px,9vh,104px)]">
+  {p.available && (
+    <div data-fade data-delay="20" class="flex items-center gap-[10px] text-[13px] font-semibold tracking-[0.14em] uppercase text-muted mb-[clamp(22px,4vw,40px)]">
+      <span class="w-2 h-2 rounded-full bg-accent" style="animation:tl-pulse 2.4s infinite"></span>
+      Available for work
+    </div>
+  )}
+  <h1 class="m-0 font-display font-extrabold tracking-[-0.035em] leading-[0.92] text-[clamp(54px,12vw,158px)]">
+    {words.map((letters) => (
+      <span class="inline-block overflow-hidden align-bottom pb-[0.16em] -mb-[0.16em] mr-[0.16em]">
+        {letters.map((c) => <span data-letter class="inline-block will-change-transform">{c}</span>)}
+      </span>
+    ))}
+  </h1>
+  <div data-fade data-delay="560" class="flex flex-wrap justify-center items-baseline gap-x-4 gap-y-2 mt-[clamp(20px,3vw,36px)]">
+    <span class="font-display text-[clamp(22px,3.2vw,40px)] font-semibold tracking-[-0.02em]">{p.role}</span>
+    <span class="text-[clamp(15px,1.7vw,20px)] font-semibold text-accent">— for <span data-scramble class="inline-block min-w-[7ch] text-left">{p.disciplines[0]}</span></span>
+  </div>
+  <p data-fade data-delay="680" class="max-w-[620px] mx-auto mt-[clamp(22px,3vw,34px)] text-[clamp(18px,2vw,25px)] leading-[1.5]">{p.lead}</p>
+  <div data-fade data-delay="800" class="flex flex-wrap justify-center gap-x-7 gap-y-[10px] mt-[clamp(28px,4vw,46px)]">
+    <a data-magnetic href={`mailto:${p.email}`} class="inline-block text-[15px] font-semibold text-ink no-underline border-b border-line pb-[3px] will-change-transform transition-colors duration-200 hover:text-accent hover:border-accent">Email&nbsp;↗</a>
+    <a data-magnetic href={p.links.github.href} target="_blank" rel="noopener" class="inline-block text-[15px] font-semibold text-ink no-underline border-b border-line pb-[3px] will-change-transform transition-colors duration-200 hover:text-accent hover:border-accent">GitHub&nbsp;↗</a>
+    <a data-magnetic href={p.links.linkedin.href} target="_blank" rel="noopener" class="inline-block text-[15px] font-semibold text-ink no-underline border-b border-line pb-[3px] will-change-transform transition-colors duration-200 hover:text-accent hover:border-accent">LinkedIn&nbsp;↗</a>
+  </div>
+</header>
