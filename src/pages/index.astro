@@ -4,6 +4,7 @@ import { getEntry } from 'astro:content';
 import Hero from '@/components/hero/Hero.astro';
 import About from '@/components/about/About.astro';
 import Skills from '@/components/skills/Skills.astro';
+import Experience from '@/components/experience/Experience.astro';
 const { data: p } = (await getEntry('profile', 'profile'))!;
 ---
 <BaseLayout>
@@ -12,6 +13,7 @@ const { data: p } = (await getEntry('profile', 'profile'))!;
     <Hero />
     <About />
     <Skills />
+    <Experience />
   </main>
 </BaseLayout>
 

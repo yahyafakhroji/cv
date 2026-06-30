@@ -1,0 +1,53 @@
+---
+import { getCollection } from 'astro:content';
+import { sortExperience } from '@/lib/content';
+import SectionHeader from '@/components/layout/SectionHeader.astro';
+const jobs = sortExperience(await getCollection('experience')).map((e) => e.data);
+const first = jobs[0];
+const total = jobs.length;
+const pad2 = (n: number) => String(n).padStart(2, '0');
+---
+<section aria-labelledby="exp-h" class="py-[clamp(56px,8vw,120px)]">
+  <div class="max-w-[1200px] mx-auto px-[clamp(20px,5vw,64px)]">
+    <SectionHeader no="03" label="Experience" />
+    <h2 id="exp-h" class="sr-only">Experience</h2>
+    <div class="flex flex-wrap gap-[clamp(24px,4vw,64px)] items-start">
+      <div data-panel class="flex-[1_1_300px] min-w-[260px] self-start top-[clamp(56px,10vh,112px)]">
+        <div data-progress-label class="text-[12px] font-bold tracking-[0.14em] text-accent">{pad2(1)} / {pad2(total)}</div>
+        <div data-active-year class="font-display text-[clamp(72px,11vw,128px)] font-extrabold leading-[0.92] tracking-[-0.04em] mt-[10px] mb-[8px]">{first.year}</div>
+        <div data-active-company class="font-display text-[clamp(24px,2.6vw,32px)] font-bold tracking-[-0.02em]">{first.company}</div>
+        <div data-active-role class="text-[clamp(15px,1.6vw,18px)] font-semibold text-accent mt-[2px]">{first.role}</div>
+        <p data-active-summary class="mt-4 mb-0 text-[clamp(15px,1.5vw,17px)] leading-[1.55] text-muted max-w-[380px] text-pretty">{first.summary}</p>
+        <div class="mt-[26px] h-[3px] w-full bg-line rounded-[3px] overflow-hidden">
+          <span data-bar class="block h-full bg-accent rounded-[3px] transition-[width] duration-500" style="width:14%"></span>
+        </div>
+      </div>
+      <div class="flex-[1.6_1_420px] flex flex-col gap-[clamp(40px,6vw,80px)] pb-[clamp(0px,7vh,96px)]">
+        {jobs.map((job) => (
+          <article data-jobcard data-year={job.year} data-company={job.company} data-role={job.role} data-summary={job.summary} class="scroll-mt-[90px]">
+            <div class="flex flex-wrap items-baseline gap-x-[14px] gap-y-2 mb-1">
+              <h3 class="m-0 font-display text-[clamp(26px,3.2vw,42px)] font-bold tracking-[-0.03em]">{job.company}</h3>
+              {job.current && <span class="text-[11px] font-bold tracking-[0.04em] text-accent border border-accent rounded-full px-[10px] py-[3px]">NOW</span>}
+            </div>
+            <div class="flex flex-wrap gap-x-4 gap-y-[6px] items-baseline mb-[18px]">
+              <span class="text-[clamp(16px,1.8vw,20px)] font-semibold">{job.role}</span>
+              <span class="text-[13px] font-semibold tracking-[0.04em] text-muted">{job.period}</span>
+            </div>
+            <ul class="m-0 p-0 list-none flex flex-col gap-[11px]">
+              {job.bullets.map((b) => (
+                <li class="relative pl-6 text-[clamp(15px,1.6vw,18px)] leading-[1.55] text-ink text-pretty">
+                  <span class="absolute left-0 top-[0.62em] w-[10px] h-px bg-accent"></span>{b}
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { initExperienceScrollSpy } from '@/scripts/experienceScrollSpy';
+  initExperienceScrollSpy(document);
+</script>
